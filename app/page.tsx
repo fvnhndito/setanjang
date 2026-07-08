@@ -13,6 +13,9 @@ import {
   ArrowRight,
   ChevronRight,
   Sparkles,
+  Recycle,
+  Award,
+  TrendingUp
 } from "lucide-react";
 
 const pillars = [
@@ -124,14 +127,14 @@ export default function Home() {
                   href="#about"
                   className="w-full sm:w-auto px-7 py-3.5 rounded-xl text-sm font-medium bg-brand-green-dark text-brand-cream hover:bg-brand-green-dark/90 shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
-                  Jelajahi Program
+                  Jelajahi Kelurahan Tandang
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
                 <a
                   href="#kelurahan"
                   className="w-full sm:w-auto px-7 py-3.5 rounded-xl text-sm font-medium border border-brand-charcoal/15 text-brand-charcoal hover:bg-brand-charcoal/5 transition-all duration-300 flex items-center justify-center"
                 >
-                  Kenali Profil Desa
+                  Profil Kelurahan Jangli
                 </a>
               </div>
             </div>
@@ -141,8 +144,8 @@ export default function Home() {
               <div className="relative w-full max-w-[460px] aspect-square rounded-3xl p-3 bg-white shadow-xl border border-brand-charcoal/5 transition-transform duration-500 hover:scale-[1.02] group">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden bg-brand-cream">
                   <Image
-                    src="/setanjang_hero_village.png"
-                    alt="Ilustrasi Desa Setanjang"
+                    src="/lashing_craft_bags.png"
+                    alt="Kriya Anyaman Tali Lashing Setanjang"
                     fill
                     priority
                     sizes="(max-width: 1280px) 100vw, 460px"
