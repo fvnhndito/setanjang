@@ -12,18 +12,18 @@
   --font-sans: 'Geist', var(--font-geist-sans), sans-serif;
   --font-mono: 'Geist Mono', var(--font-geist-mono), monospace;
   --font-serif: 'Playfair Display', var(--font-playfair), serif;
-  
+
   --color-brand-cream: #F5F4F0;
   --color-brand-charcoal: #1C1E21;
   --color-brand-green-dark: #2E5A44;
   --color-brand-green-light: #5B9E31;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #121314;
-    --foreground: #F5F4F0;
-  }
+/* Disable automatic dark mode — only activates with explicit .dark class */
+@variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -33,12 +33,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom styles for smooth scroll and selection colors */
-html {
-  scroll-behavior: smooth;
-}
-
 ::selection {
-  background-color: var(--color-brand-green-dark);
+  background-color: #2E5A44;
   color: #F5F4F0;
 }
