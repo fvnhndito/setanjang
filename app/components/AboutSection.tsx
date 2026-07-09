@@ -25,7 +25,7 @@ const pillars = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="px-5 sm:px-6 lg:px-8 py-20 md:py-28">
+    <section id="pillars" className="px-5 sm:px-6 lg:px-8 py-20 md:py-28 bg-white dark:bg-[#1A1B1D] border-t border-brand-charcoal/5">
       <div className="max-w-[1440px] mx-auto">
         {/* ── "Why Choosing Us" style layout ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
