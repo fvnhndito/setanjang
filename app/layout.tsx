@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Setanjang - KKN Desa Setanjang 2026",
-  description: "Portal resmi KKN Desa Setanjang 2026. Kolaborasi mahasiswa untuk pemberdayaan masyarakat dan digitalisasi desa.",
+  title: "KKN Setanjang - Kelurahan Jangli & Tandang",
+  description: "Portal resmi KKN Setanjang 2026. Kolaborasi mahasiswa untuk pemberdayaan masyarakat dan digitalisasi Kelurahan Jangli dan Tandang.",
 };
 
 export default function RootLayout({

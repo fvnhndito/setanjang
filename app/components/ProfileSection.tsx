@@ -11,8 +11,8 @@ export default function ProfileSection() {
   return (
     <>
       {/* ── Section 1: "Best Experience" style — dark left, text right ── */}
-      <section className="px-6 sm:px-8 lg:px-12 py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="px-5 sm:px-6 lg:px-8 py-20 md:py-28 bg-white">
+        <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-brand-charcoal/8">
             {/* Left — Dark Panel with Stats */}
             <div className="bg-brand-charcoal p-10 md:p-14 flex flex-col justify-between min-h-[420px]">
@@ -68,9 +68,9 @@ export default function ProfileSection() {
       {/* ── Section 2: "Materials" style — text left, image grid right ── */}
       <section
         id="kelurahan"
-        className="px-6 sm:px-8 lg:px-12 py-20 md:py-28"
+        className="px-5 sm:px-6 lg:px-8 py-20 md:py-28"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left — Text */}
             <div className="space-y-6">

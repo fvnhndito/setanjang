@@ -1,229 +1,205 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import Logo from "./Logo";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
+const InstagramIcon = () => (
+  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <rect x="2" y="2" width="20" height="20" rx="5" />
+    <circle cx="12" cy="12" r="5" />
+    <circle cx="17.5" cy="6.5" r="1.5" />
+  </svg>
+);
+
+const TiktokIcon = () => (
+  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.71a8.21 8.21 0 004.76 1.52V6.78a4.84 4.84 0 01-1-.09z" />
+  </svg>
+);
 
 const navLinks = [
-  { label: "Home", href: "#home", id: "home" },
-  { label: "About Us", href: "#about", id: "about" },
-  { label: "Kelurahan", href: "#kelurahan", id: "kelurahan" },
+  { label: "About", href: "#about" },
+  { label: "Programs", href: "#kelurahan" },
+  { label: "Wilayah", href: "#wilayah" },
+];
+
+const socialLinks = [
+  { icon: <InstagramIcon />, href: "#", label: "Instagram" },
+  { icon: <TiktokIcon />, href: "#", label: "TikTok" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-  const [kelurahanOpen, setKelurahanOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      
+      // Hero section is ~92vh. We switch to light theme only after passing it.
+      const heroThreshold = window.innerHeight * 0.85;
+      setScrolled(currentScrollY > heroThreshold);
 
-      const sections = ["home", "about", "kelurahan"];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-
-          if (
-            scrollPosition >= top &&
-            scrollPosition < top + height
-          ) {
-            setActiveSection(section);
-          }
-        }
+      // Hide navbar when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
       }
+      
+      lastScrollY = currentScrollY;
     };
-
-    handleScroll();
-
-    handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    {
-      label: "Home",
-      href: "#home",
-      id: "home",
-    },
-    {
-      label: "About Us",
-      href: "#about",
-      id: "about",
-    },
-  ];
-
   const handleScrollTo = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    e.preventDefault();
-
-    setIsOpen(false);
-
-    const element = document.getElementById(href.replace("#", ""));
-
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: "smooth",
-      });
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      setIsOpen(false);
+      const el = document.getElementById(href.replace("#", ""));
+      if (el) {
+        window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+      }
+    } else {
+      setIsOpen(false);
     }
   };
 
+  // Dynamic colors based on scroll state
+  const textColor = scrolled ? "#1C1E21" : "#FFFFFF";
+  const textColorMuted = scrolled ? "rgba(28,30,33,0.7)" : "rgba(255,255,255,0.9)";
+  const iconBg = scrolled ? "rgba(28,30,33,0.08)" : "rgba(255,255,255,0.1)";
+  const iconColor = scrolled ? "rgba(28,30,33,0.6)" : "rgba(255,255,255,0.7)";
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 px-6 sm:px-8 lg:px-12 transition-[background-color,padding,box-shadow,border-color,backdrop-filter] duration-500 ease-in-out ${scrolled
-        ? "bg-white/55 backdrop-blur-xl border-b border-brand-charcoal/[0.06] py-3.5 shadow-[0_1px_12px_rgba(0,0,0,0.04)]"
-        : "bg-transparent backdrop-blur-none py-5"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
     >
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="flex items-center justify-between">
-          <Logo size="md" />
+      {/* Smooth Gradient Blur Background */}
+      <div
+        className="absolute inset-0 pointer-events-none transition-colors duration-500"
+        style={{
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
+          backgroundColor: scrolled ? "rgba(245, 244, 240, 0.6)" : "rgba(28, 30, 33, 0.3)",
+          maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+        }}
+      />
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-10">
+      <div className="relative px-5 sm:px-6 lg:px-8 pt-5 pb-8">
+        <div className="max-w-[1440px] mx-auto w-full">
+          <div className="flex items-center justify-between">
+            {/* Left — Logo */}
+            <Logo size="md" variant={scrolled ? "dark" : "light"} />
+
+          {/* Center — Nav Links (Desktop) */}
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
-                key={link.id}
+                key={link.label}
                 href={link.href}
                 onClick={(e) => handleScrollTo(e, link.href)}
-                className={`relative text-sm font-medium tracking-wide transition-colors duration-300 ${activeSection === link.id
-                  ? "text-brand-green-dark"
-                  : "text-brand-charcoal/60 hover:text-brand-charcoal"
-                  }`}
+                style={{ color: textColorMuted }}
+                className="text-base font-medium transition-colors duration-300"
+                onMouseEnter={(e) => (e.currentTarget.style.color = textColor)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = textColorMuted)}
               >
                 {link.label}
-                <span
-                  className={`absolute -bottom-1.5 left-0 right-0 h-[2px] rounded-full bg-brand-green-dark transition-all duration-300 ${activeSection === link.id
-                    ? "opacity-100 scale-x-100"
-                    : "opacity-0 scale-x-0"
-                    }`}
-                />
               </a>
             ))}
-
-            {/* Dropdown Kelurahan */}
-            <div
-              className="relative"
-              onMouseEnter={() => setKelurahanOpen(true)}
-              onMouseLeave={() => setKelurahanOpen(false)}
-            >
-              <button className="flex items-center gap-1 font-sans text-[15px] font-medium text-brand-charcoal/70 dark:text-brand-cream/70 hover:text-brand-charcoal dark:hover:text-brand-cream transition-colors">
-                Kelurahan
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${kelurahanOpen ? "rotate-180" : ""
-                    }`}
-                />
-              </button>
-
-              <div
-                className={`absolute right-0 mt-3 w-56 rounded-xl bg-brand-cream dark:bg-brand-charcoal border border-brand-charcoal/10 dark:border-brand-cream/10 shadow-xl transition-all duration-200 origin-top ${kelurahanOpen
-                  ? "opacity-100 scale-100 visible"
-                  : "opacity-0 scale-95 invisible"
-                  }`}
-              >
-                <Link
-                  href="/tandang"
-                  className="block px-5 py-3 hover:bg-brand-green-light/10 transition-colors"
-                >
-                  Kelurahan Tandang
-                </Link>
-
-                <Link
-                  href="/jangli"
-                  className="block px-5 py-3 hover:bg-brand-green-light/10 transition-colors"
-                >
-                  Kelurahan Jangli
-                </Link>
-              </div>
-            </div>
           </div>
 
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-brand-charcoal hover:bg-brand-charcoal/5 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-          </button>
+          {/* Right — Social Icons (Desktop) */}
+          <div className="hidden md:flex items-center gap-2">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                aria-label={social.label}
+                style={{ color: iconColor, backgroundColor: iconBg }}
+                className="h-9 w-9 rounded-full flex items-center justify-center transition-all duration-300"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = textColor;
+                  e.currentTarget.style.backgroundColor = scrolled ? "rgba(28,30,33,0.12)" : "rgba(255,255,255,0.2)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = iconColor;
+                  e.currentTarget.style.backgroundColor = iconBg;
+                }}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              style={{ color: iconColor }}
+              className="md:hidden p-2 rounded-lg transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-brand-cream border-b border-brand-charcoal/5 shadow-lg transition-all duration-300 ease-in-out ${isOpen
-          ? "opacity-100 translate-y-0 pointer-events-auto"
-          : "opacity-0 -translate-y-2 pointer-events-none"
-          }`}
+        style={{
+          backgroundColor: scrolled ? "rgba(245,244,240,0.98)" : "rgba(28,30,33,0.95)",
+          borderTop: scrolled ? "1px solid rgba(28,30,33,0.06)" : "1px solid rgba(255,255,255,0.05)",
+          opacity: isOpen ? 1 : 0,
+          transform: isOpen ? "translateY(0)" : "translateY(-8px)",
+          pointerEvents: isOpen ? "auto" : "none",
+        }}
+        className="md:hidden absolute top-full left-0 right-0 backdrop-blur-xl transition-all duration-300 ease-in-out"
       >
-        <div className="px-6 py-5 space-y-3">
+        <div className="px-6 py-6 space-y-1">
           {navLinks.map((link) => (
             <a
-              key={link.id}
+              key={link.label}
               href={link.href}
               onClick={(e) => handleScrollTo(e, link.href)}
-              className={`block py-2 text-base font-medium transition-colors ${activeSection === link.id
-                ? "text-brand-green-dark"
-                : "text-brand-charcoal/70"
-                }`}
+              style={{ color: scrolled ? "rgba(28,30,33,0.8)" : "rgba(255,255,255,0.85)" }}
+              className="block py-3 text-base font-medium transition-colors"
             >
               {link.label}
             </a>
           ))}
 
-          {/* Mobile Dropdown */}
-          <div>
-            <button
-              onClick={() => setKelurahanOpen(!kelurahanOpen)}
-              className="flex w-full items-center justify-between py-2 font-sans text-lg font-semibold text-brand-charcoal/80 dark:text-brand-cream/80"
-            >
-              Kelurahan
-
-              <ChevronDown
-                className={`h-5 w-5 transition-transform duration-200 ${kelurahanOpen ? "rotate-180" : ""
-                  }`}
-              />
-            </button>
-
-            <div
-              className={`overflow-hidden transition-all duration-300 ${kelurahanOpen
-                ? "max-h-40 mt-2"
-                : "max-h-0"
-                }`}
-            >
-              <div className="ml-4 border-l border-brand-charcoal/10 dark:border-brand-cream/10 pl-4 space-y-2">
-                <Link
-                  href="/tandang"
-                  onClick={() => setIsOpen(false)}
-                  className="block py-2 text-brand-charcoal/70 dark:text-brand-cream/70 hover:text-brand-green-dark"
-                >
-                  Kelurahan Tandang
-                </Link>
-
-                <Link
-                  href="/jangli"
-                  onClick={() => setIsOpen(false)}
-                  className="block py-2 text-brand-charcoal/70 dark:text-brand-cream/70 hover:text-brand-green-dark"
-                >
-                  Kelurahan Jangli
-                </Link>
-              </div>
-            </div>
+          {/* Social row in mobile */}
+          <div
+            style={{ borderTop: scrolled ? "1px solid rgba(28,30,33,0.08)" : "1px solid rgba(255,255,255,0.1)" }}
+            className="flex items-center gap-3 pt-4 mt-3"
+          >
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                aria-label={social.label}
+                style={{
+                  color: scrolled ? "rgba(28,30,33,0.6)" : "rgba(255,255,255,0.7)",
+                  backgroundColor: scrolled ? "rgba(28,30,33,0.06)" : "rgba(255,255,255,0.1)",
+                }}
+                className="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300"
+              >
+                {social.icon}
+              </a>
+            ))}
           </div>
         </div>
       </div>

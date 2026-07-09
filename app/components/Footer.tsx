@@ -14,13 +14,13 @@ export default function Footer() {
   return (
     <footer className="bg-brand-cream border-t border-brand-charcoal/8">
       {/* Main Footer */}
-      <div className="w-full px-6 sm:px-8 lg:px-12 py-16 md:py-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+      <div className="w-full px-5 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-4 space-y-4">
             <Logo size="md" />
             <p className="text-sm text-brand-charcoal/50 leading-relaxed max-w-xs">
-              Sinergi mahasiswa KKN Universitas bersama warga Desa Setanjang
+              Sinergi mahasiswa KKN Universitas bersama warga Kelurahan Jangli dan Tandang
               dalam mewujudkan transformasi digital, kelestarian lingkungan, dan
               kemandirian ekonomi masyarakat.
             </p>
@@ -83,8 +83,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-brand-charcoal/8 px-6 sm:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-brand-charcoal/40">
+      <div className="border-t border-brand-charcoal/8 px-5 sm:px-6 lg:px-8">
+        <div className="max-w-[1440px] mx-auto py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-brand-charcoal/40">
           <p>Copyright © {new Date().getFullYear()} KKNT IDBU 70</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-brand-charcoal transition-colors">

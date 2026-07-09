@@ -4,6 +4,7 @@ import Image from "next/image";
 interface LogoProps {
   className?: string;
   size?: "sm" | "md" | "lg";
+  variant?: "light" | "dark";
 }
 
 const sizeMap = {
@@ -12,8 +13,9 @@ const sizeMap = {
   lg: { width: 180, height: 48 },
 };
 
-export default function Logo({ className = "", size = "md" }: LogoProps) {
+export default function Logo({ className = "", size = "md", variant = "dark" }: LogoProps) {
   const { width, height } = sizeMap[size];
+  const src = variant === "light" ? "/setanjang-putih.svg" : "/setanjang.svg";
 
   return (
     <Link
@@ -22,7 +24,7 @@ export default function Logo({ className = "", size = "md" }: LogoProps) {
       aria-label="Setanjang Home"
     >
       <Image
-        src="/setanjang.svg"
+        src={src}
         alt="Setanjang Logo"
         width={width}
         height={height}

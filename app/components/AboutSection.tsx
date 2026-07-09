@@ -25,8 +25,8 @@ const pillars = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="px-6 sm:px-8 lg:px-12 py-20 md:py-28">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="px-5 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div className="max-w-[1440px] mx-auto">
         {/* ── "Why Choosing Us" style layout ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
           {/* Left — Big Heading */}
@@ -45,7 +45,7 @@ export default function AboutSection() {
           <div className="lg:col-span-8 flex items-end">
             <p className="text-base text-brand-charcoal/60 leading-relaxed max-w-2xl">
               KKN Setanjang 2026 merupakan wadah dedikasi mahasiswa untuk
-              turun langsung bermitra dengan masyarakat desa. Kami merancang
+              turun langsung bermitra dengan masyarakat Kelurahan Jangli dan Tandang. Kami merancang
               empat pilar program kerja strategis yang berfokus pada
               pemberdayaan lokal yang berkelanjutan.
             </p>
