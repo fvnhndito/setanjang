@@ -39,7 +39,7 @@ export const stats: StatItem[] = [
   { value: "3,76 km²", label: "Luas Wilayah" },
   { value: "24.997", label: "Jiwa Penduduk" },
   { value: "14 RW", label: "Total Rukun Warga" },
-  { value: "Sentra Kriya Tali Anyaman", label: "Potensi Utama" },
+  { value: "UMKM Tali Anyaman", label: "Potensi Utama" },
 ];
 
 /* ═══════════════════════════════════════════
