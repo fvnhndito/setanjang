@@ -3,15 +3,15 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Map,
-  BookOpen,
   Sparkles,
   AlertTriangle,
   CheckCircle,
   TrendingUp,
   Recycle,
-  Layers,
   ArrowRight,
-  UserCheck,
+  Bookmark,
+  Compass,
+  Zap,
 } from "lucide-react";
 
 export default function LashingSection() {
@@ -34,12 +34,12 @@ export default function LashingSection() {
     {
       title: "Inovasi Alat & Desain",
       desc: "Menghadirkan alat bantu anyaman khusus untuk mempercepat produksi dan merancang minimal 5 variasi desain produk baru yang berdaya saing tinggi.",
-      icon: <Sparkles className="h-6 w-6 text-brand-green-dark" />,
+      icon: <Zap className="h-6 w-6 text-brand-green-light" />,
     },
     {
       title: "Digitalisasi & Tata Kelola",
       desc: "Memberikan edukasi pembukuan usaha yang ringkas serta membawa produk lokal ini go-digital melalui platform e-commerce seperti Shopee dan katalog media sosial Instagram.",
-      icon: <TrendingUp className="h-6 w-6 text-brand-green-dark" />,
+      icon: <TrendingUp className="h-6 w-6 text-brand-green-light" />,
     },
   ];
 
@@ -47,66 +47,79 @@ export default function LashingSection() {
     <div className="bg-[#F5F4F0] dark:bg-[#121314] transition-colors duration-300">
       
       {/* SECTION 1: Pilih Wilayah Eksplorasi (Setelah Hero Section) */}
-      <section id="eksplorasi" className="px-5 sm:px-6 lg:px-8 py-20 md:py-24 max-w-[1440px] mx-auto scroll-mt-20">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-green-dark/10 text-brand-green-dark">
-            <Map className="h-3.5 w-3.5" />
+      <section id="eksplorasi" className="px-5 sm:px-6 lg:px-8 py-24 md:py-28 max-w-[1440px] mx-auto scroll-mt-20">
+        <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-green-dark/10 text-brand-green-dark">
+            <Map className="h-4 w-4" />
             Eksplorasi Program Kerja
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif text-brand-charcoal leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-charcoal leading-tight">
             Pilih Wilayah Pengabdian KKN
           </h2>
-          <p className="text-sm sm:text-base text-brand-charcoal/60 leading-relaxed font-sans">
+          <div className="h-[2px] w-12 bg-brand-green-dark/30 mx-auto my-2" />
+          <p className="text-sm sm:text-base text-brand-charcoal/60 leading-relaxed font-sans max-w-2xl mx-auto">
             Mulai penelusuran Anda dengan mengunjungi laman khusus masing-masing wilayah untuk melihat program kerja terperinci, katalog produk, dan peta interaktif.
           </p>
         </div>
 
-        {/* Two Big Cards for Tandang and Jangli */}
+        {/* Two Big Cards for Tandang and Jangli (Editorial Style) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Card Jangli */}
-          <div className="bg-white dark:bg-brand-charcoal p-8 sm:p-10 rounded-3xl border border-brand-charcoal/8 shadow-sm flex flex-col justify-between hover:border-brand-green-dark/20 hover:shadow-md transition-all duration-300 group">
-            <div className="space-y-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-green-dark">
+          <div className="relative bg-white dark:bg-brand-charcoal p-8 sm:p-10 rounded-3xl border border-brand-charcoal/5 shadow-sm hover:border-brand-green-dark/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out group overflow-hidden">
+            {/* Editorial Number */}
+            <span className="font-serif text-[7.5rem] font-light text-brand-green-dark/[0.04] dark:text-brand-green-light/[0.02] select-none pointer-events-none absolute right-6 top-2 leading-none">
+              01
+            </span>
+            
+            <div className="space-y-4 relative z-10">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-brand-green-dark bg-brand-green-dark/5 px-2.5 py-1 rounded-md">
                 Kelurahan Binaan 1
               </span>
-              <h3 className="text-2xl font-serif font-normal text-brand-charcoal leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-serif font-normal text-brand-charcoal leading-tight pt-2">
                 Kelurahan Jangli
               </h3>
-              <p className="text-sm text-brand-charcoal/60 leading-relaxed font-sans">
+              <p className="text-sm text-brand-charcoal/60 leading-relaxed font-sans pt-2">
                 Jelajahi sentra kriya daur ulang lashing di RW 04 Jangli. Temukan pemetaan sebaran pengrajin lokal, program kerja digitalisasi manajemen, dan dokumentasi program multidisiplin keilmuan mahasiswa.
               </p>
             </div>
-            <div className="pt-8">
+            
+            <div className="pt-8 relative z-10">
               <Link
                 href="/jangli"
-                className="inline-flex items-center justify-center gap-2 py-3.5 px-6 w-full rounded-xl text-xs font-bold bg-brand-charcoal text-white hover:bg-brand-green-dark transition-colors duration-300 group-hover:shadow"
+                className="inline-flex items-center gap-2 text-sm font-bold text-brand-charcoal dark:text-brand-cream hover:text-brand-green-dark dark:hover:text-brand-green-light transition-colors duration-300 group/btn"
               >
                 Eksplorasi Wilayah Jangli
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
               </Link>
             </div>
           </div>
 
           {/* Card Tandang */}
-          <div className="bg-white dark:bg-brand-charcoal p-8 sm:p-10 rounded-3xl border border-brand-charcoal/8 shadow-sm flex flex-col justify-between hover:border-brand-green-dark/20 hover:shadow-md transition-all duration-300 group">
-            <div className="space-y-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-green-dark">
+          <div className="relative bg-white dark:bg-brand-charcoal p-8 sm:p-10 rounded-3xl border border-brand-charcoal/5 shadow-sm hover:border-brand-green-dark/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out group overflow-hidden">
+            {/* Editorial Number */}
+            <span className="font-serif text-[7.5rem] font-light text-brand-green-dark/[0.04] dark:text-brand-green-light/[0.02] select-none pointer-events-none absolute right-6 top-2 leading-none">
+              02
+            </span>
+
+            <div className="space-y-4 relative z-10">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-brand-green-dark bg-brand-green-dark/5 px-2.5 py-1 rounded-md">
                 Kelurahan Binaan 2
               </span>
-              <h3 className="text-2xl font-serif font-normal text-brand-charcoal leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-serif font-normal text-brand-charcoal leading-tight pt-2">
                 Kelurahan Tandang
               </h3>
-              <p className="text-sm text-brand-charcoal/60 leading-relaxed font-sans">
+              <p className="text-sm text-brand-charcoal/60 leading-relaxed font-sans pt-2">
                 Telusuri sentra kriya lashing di RW 10 Tandang. Lihat revitalisasi showroom kriya bersama Karang Taruna, dokumentasi pelatihan 5 produk inovatif, digital marketing, serta program keberlanjutan bank sampah.
               </p>
             </div>
-            <div className="pt-8">
+            
+            <div className="pt-8 relative z-10">
               <Link
                 href="/tandang"
-                className="inline-flex items-center justify-center gap-2 py-3.5 px-6 w-full rounded-xl text-xs font-bold bg-brand-charcoal text-white hover:bg-brand-green-dark transition-colors duration-300 group-hover:shadow"
+                className="inline-flex items-center gap-2 text-sm font-bold text-brand-charcoal dark:text-brand-cream hover:text-brand-green-dark dark:hover:text-brand-green-light transition-colors duration-300 group/btn"
               >
                 Eksplorasi Wilayah Tandang
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
               </Link>
             </div>
           </div>
@@ -114,7 +127,7 @@ export default function LashingSection() {
       </section>
 
       {/* SECTION 2: Pengenalan Komoditas & Mitra Utama (Who & Product) */}
-      <section className="bg-white dark:bg-[#1A1B1D] px-5 sm:px-6 lg:px-8 py-20 md:py-28 border-t border-brand-charcoal/5">
+      <section className="bg-white dark:bg-[#1A1B1D] px-5 sm:px-6 lg:px-8 py-24 md:py-32 border-t border-brand-charcoal/5">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           {/* Left - Narration */}
           <div className="lg:col-span-7 space-y-6">
@@ -124,61 +137,98 @@ export default function LashingSection() {
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-charcoal leading-tight">
               Mengubah Limbah Menjadi <br />
-              <span className="italic font-medium text-brand-green-dark">Karya Kriya Bernilai Tinggi</span>
+              <span className="italic font-medium text-brand-green-dark">Karya Kriya Berharga</span>
             </h2>
             <div className="h-[2px] w-12 bg-brand-green-dark/30 my-4" />
             
-            <div className="space-y-4 text-base text-brand-charcoal/70 leading-relaxed font-sans">
-              <p>
-                <strong>Tali Lashing</strong> merupakan limbah strapping band plastik tebal yang biasanya dibuang oleh industri perakitan barang elektronik. Padahal, dengan penanganan yang tepat, material polymer tebal ini memiliki potensi besar untuk didaur ulang menjadi produk kriya bernilai estetika dan ekonomi tinggi.
+            {/* Elegant quote block */}
+            <div className="border-l-4 border-brand-green-dark pl-4 py-1.5 bg-brand-green-dark/5 dark:bg-brand-green-dark/10 rounded-r-xl my-6">
+              <p className="text-sm font-medium text-brand-green-dark dark:text-brand-green-light italic leading-relaxed font-sans">
+                "Mengubah strapping band sisa industri elektronik menjadi kriya anyaman serbaguna bernilai jual tinggi untuk mendukung kemandirian ekonomi lokal."
               </p>
-              <p>
-                <strong>UMKM Pengrajin Lokal</strong> di Kelurahan Jangli dan Tandang menjadi jantung dari gerakan pemberdayaan ini. Kami bekerja sama langsung dengan kelompok dasawisma, ibu-ibu PKK, dan pengrajin rumahan. Kolaborasi ini merangkul dedikasi mereka untuk menganyam limbah plastik menjadi tas belanja berkualitas tinggi yang siap bersaing di pasar lokal Semarang.
-              </p>
+            </div>
+            
+            {/* Custom bullet points with Leaf icon */}
+            <div className="space-y-4 text-sm sm:text-base text-brand-charcoal/70 dark:text-brand-cream/80 leading-relaxed font-sans pt-2">
+              <div className="flex items-start gap-3">
+                <div className="h-5 w-5 rounded-full bg-brand-green-dark/10 text-brand-green-dark flex items-center justify-center flex-shrink-0 mt-1">
+                  <Bookmark className="h-3 w-3" />
+                </div>
+                <p>
+                  <strong>Tali Lashing</strong> merupakan limbah strapping band plastik tebal berkekuatan tinggi sisa industri pengemasan elektronik (seperti pabrik Polytron). Melalui program KKN, bahan ini didaur ulang kreatif menjadi tas belanja serbaguna berkualitas premium.
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="h-5 w-5 rounded-full bg-brand-green-dark/10 text-brand-green-dark flex items-center justify-center flex-shrink-0 mt-1">
+                  <Bookmark className="h-3 w-3" />
+                </div>
+                <p>
+                  <strong>UMKM Pengrajin Lokal</strong> di kelurahan Jangli dan Tandang menjadi jantung dari gerakan pemberdayaan ini. Kami bekerja sama langsung dengan kelompok dasawisma, ibu-ibu PKK, dan pengrajin rumahan untuk mewujudkan kemandirian finansial yang berkelanjutan.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Right - Product Highlight Visual (Direct Image without Card) */}
-          <div className="lg:col-span-5 w-full">
-            <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-md border border-brand-charcoal/5">
-              <Image
-                src="/lashing-artisan.jpg"
-                alt="Pengrajin Tali Lashing"
-                fill
-                priority
-                sizes="(max-w-7xl) 100vw, 500px"
-                className="object-cover transition-transform duration-700 hover:scale-105"
-              />
+          {/* Right - Product Highlight Visual (Asymmetric Collage Frame) */}
+          <div className="lg:col-span-5 flex justify-center w-full pt-6 lg:pt-0">
+            <div className="relative w-full max-w-[460px] aspect-[4/3] group select-none">
+              {/* Decorative offset bg card */}
+              <div className="absolute inset-0 bg-brand-green-dark/10 dark:bg-brand-green-light/5 rounded-3xl translate-x-3.5 translate-y-3.5 rotate-2 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:rotate-0" />
+              
+              {/* Main image container */}
+              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-lg border border-brand-charcoal/5 bg-brand-cream">
+                <Image
+                  src="/lashing-artisan.jpg"
+                  alt="Pengrajin Tali Lashing"
+                  fill
+                  priority
+                  sizes="(max-w-7xl) 100vw, 500px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Absolute badge overlay */}
+                <div className="absolute bottom-4 left-4 bg-brand-charcoal/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-xl text-[10px] font-bold text-white uppercase tracking-wider shadow-md">
+                  Dokumentasi KKN Undip 2026
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 3: Peta Masalah Industri Daur Ulang (Why) */}
-      <section className="px-5 sm:px-6 lg:px-8 py-20 md:py-28 max-w-[1440px] mx-auto border-t border-brand-charcoal/5">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-green-dark/10 text-brand-green-dark">
+      <section className="px-5 sm:px-6 lg:px-8 py-24 md:py-28 max-w-[1440px] mx-auto border-t border-brand-charcoal/5">
+        <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-green-dark/10 text-brand-green-dark">
             <AlertTriangle className="h-3.5 w-3.5" />
             Identifikasi Tantangan
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif text-brand-charcoal leading-tight">
             Peta Masalah Industri Kriya Daur Ulang
           </h2>
-          <p className="text-sm sm:text-base text-brand-charcoal/60 leading-relaxed font-sans">
+          <div className="h-[2px] w-12 bg-brand-green-dark/30 mx-auto my-2" />
+          <p className="text-sm sm:text-base text-brand-charcoal/60 leading-relaxed font-sans max-w-xl mx-auto">
             Analisis hambatan riil yang membatasi pertumbuhan dan konsistensi usaha anyaman daur ulang tali plastik di tingkat akar rumput.
           </p>
         </div>
 
-        {/* 3 Columns Grid for Problems */}
+        {/* 3 Columns Grid for Problems (Glassmorphic Glow Style) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {problems.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-brand-charcoal p-8 rounded-3xl border border-brand-charcoal/8 shadow-sm flex flex-col justify-between hover:border-red-500/20 hover:shadow-md transition-all duration-300"
+              className="relative bg-white dark:bg-brand-charcoal p-8 rounded-3xl border border-brand-charcoal/5 shadow-sm hover:border-brand-green-dark/20 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
-              <div className="space-y-6">
-                <div className="h-10 w-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-600">
-                  <AlertTriangle className="h-5 w-5" />
+              {/* Giant editorial number in background */}
+              <span className="font-serif text-[7.5rem] font-light text-brand-charcoal/[0.03] dark:text-brand-cream/[0.02] select-none pointer-events-none absolute right-4 bottom-2 leading-none">
+                {`0${idx + 1}`}
+              </span>
+
+              <div className="space-y-6 relative z-10">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold text-brand-green-dark dark:text-brand-green-light uppercase tracking-widest bg-brand-green-dark/5 dark:bg-brand-green-light/5 px-2.5 py-1 rounded-md">
+                    {`Tantangan 0${idx + 1}`}
+                  </span>
                 </div>
                 <div className="space-y-2">
                   <h4 className="text-lg font-bold text-brand-charcoal font-sans">
@@ -194,37 +244,38 @@ export default function LashingSection() {
         </div>
       </section>
 
-      {/* SECTION 4: Rencana Intervensi / Solusi Makro (How) */}
-      <section className="bg-white dark:bg-[#1A1B1D] px-5 sm:px-6 lg:px-8 py-20 md:py-28 border-t border-brand-charcoal/5">
+      {/* SECTION 4: Rencana Intervensi / Solusi Makro (How - Deep Forest Green Background Contrast) */}
+      <section className="bg-brand-green-dark dark:bg-[#193226] text-white px-5 sm:px-6 lg:px-8 py-24 md:py-32 transition-colors duration-300">
         <div className="max-w-[1440px] mx-auto space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-green-dark/10 text-brand-green-dark">
-              <CheckCircle className="h-3.5 w-3.5" />
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-brand-green-light border border-white/5">
+              <Compass className="h-3.5 w-3.5" />
               Rencana Aksi Program
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-brand-charcoal leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-serif text-white leading-tight">
               Solusi Kerja & Intervensi KKN
             </h2>
-            <p className="text-sm sm:text-base text-brand-charcoal/60 leading-relaxed font-sans">
+            <div className="h-[2px] w-12 bg-brand-green-light/30 mx-auto my-2" />
+            <p className="text-sm sm:text-base text-brand-cream/70 leading-relaxed font-sans max-w-xl mx-auto">
               Program intervensi nyata yang diterapkan mahasiswa KKN Undip untuk menjawab tantangan kriya lokal.
             </p>
           </div>
 
-          {/* 2 Columns Grid for Solutions */}
+          {/* 2 Columns Grid for Solutions (Transparent Glassmorphism) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {solutions.map((sol, idx) => (
               <div
                 key={idx}
-                className="bg-[#F5F4F0] dark:bg-brand-charcoal p-8 sm:p-10 rounded-3xl border border-brand-charcoal/8 shadow-sm flex items-start gap-5 hover:border-brand-green-dark/20 hover:shadow-md transition-all duration-300"
+                className="bg-white/10 backdrop-blur-md border border-white/10 p-8 sm:p-10 rounded-3xl flex flex-col sm:flex-row gap-6 items-start hover:bg-white/15 transition-all duration-300 group shadow-lg"
               >
-                <div className="h-12 w-12 rounded-2xl bg-white dark:bg-[#1a1b1d] flex items-center justify-center flex-shrink-0 shadow-sm">
+                <div className="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/10 text-brand-green-light transition-transform duration-300 group-hover:scale-110">
                   {sol.icon}
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-lg font-bold text-brand-charcoal font-sans">
+                  <h4 className="text-lg font-bold text-white font-sans">
                     {sol.title}
                   </h4>
-                  <p className="text-sm text-brand-charcoal/65 leading-relaxed font-sans">
+                  <p className="text-sm text-brand-cream/75 leading-relaxed font-sans">
                     {sol.desc}
                   </p>
                 </div>
