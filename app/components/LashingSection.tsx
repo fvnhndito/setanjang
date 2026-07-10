@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Map,
   BookOpen,
@@ -137,21 +138,17 @@ export default function LashingSection() {
             </div>
           </div>
 
-          {/* Right - Product Highlight Visual */}
-          <div className="lg:col-span-5 bg-[#F5F4F0] dark:bg-brand-charcoal p-8 sm:p-10 rounded-3xl border border-brand-charcoal/8 shadow-sm space-y-6">
-            <div className="h-12 w-12 rounded-xl bg-white dark:bg-[#1a1b1d] flex items-center justify-center text-brand-green-dark shadow-sm">
-              <UserCheck className="h-6 w-6" />
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-lg font-bold text-brand-charcoal font-sans">
-                Tas Belanja Daur Ulang
-              </h3>
-              <p className="text-sm text-brand-charcoal/65 leading-relaxed font-sans">
-                Fokus produk utama kami adalah tas belanja berkualitas tinggi berskala rumahan. Tas ini didesain khusus agar kuat menahan beban berat, kedap air, tahan lama, serta modis untuk kebutuhan belanja warga Semarang sehari-hari.
-              </p>
-            </div>
-            <div className="pt-4 border-t border-brand-charcoal/10 flex items-center gap-2 text-xs font-bold text-brand-green-dark">
-              <span>Mendukung Gerakan Semarang Zero Waste</span>
+          {/* Right - Product Highlight Visual (Direct Image without Card) */}
+          <div className="lg:col-span-5 w-full">
+            <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-md border border-brand-charcoal/5">
+              <Image
+                src="/lashing-artisan.jpg"
+                alt="Pengrajin Tali Lashing"
+                fill
+                priority
+                sizes="(max-w-7xl) 100vw, 500px"
+                className="object-cover transition-transform duration-700 hover:scale-105"
+              />
             </div>
           </div>
         </div>
