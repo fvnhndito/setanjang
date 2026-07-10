@@ -59,7 +59,7 @@ export default function LashingSection() {
           <div className="lg:col-span-7 space-y-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-green-dark/10 text-brand-green-dark">
               <Recycle className="h-3.5 w-3.5" />
-              Komoditas & Mitra Utama
+              Komoditas 
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-charcoal leading-tight">
               Mengubah Limbah Menjadi <br />
@@ -214,10 +214,10 @@ export default function LashingSection() {
           <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#2E5A44] text-[#F5F4F0] border border-[#2E5A44]/15 shadow-sm">
               <AlertTriangle className="h-3.5 w-3.5 text-brand-green-light" />
-              Identifikasi Tantangan
+              Identifikasi Permasalahan
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-charcoal leading-tight">
-              Peta Masalah <span className="text-brand-green-dark font-serif italic">Industri Kriya Daur Ulang</span>
+              Permasalahan Utama <span className="text-brand-green-dark font-serif italic">Industri Kriya Daur Ulang</span>
             </h2>
             <div className="h-[2px] w-12 bg-brand-green-dark/30 mx-auto my-2" />
             <p className="text-sm sm:text-base text-brand-charcoal/60 leading-relaxed font-sans max-w-xl mx-auto">
@@ -270,7 +270,7 @@ export default function LashingSection() {
               Rencana Aksi Program
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif text-brand-charcoal leading-tight">
-              Solusi Kedepannya <span className="text-brand-green-dark font-serif italic"></span>
+              Solusi Permasalahan <span className="text-brand-green-dark font-serif italic"></span>
             </h2>
             <div className="h-[2px] w-12 bg-brand-green-dark/30 mx-auto my-2" />
             <p className="text-sm sm:text-base text-brand-charcoal/60 leading-relaxed font-sans max-w-xl mx-auto">
