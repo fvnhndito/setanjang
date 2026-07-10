@@ -21,8 +21,8 @@ const TiktokIcon = () => (
 import { usePathname } from "next/navigation";
 
 const socialLinks = [
-  { icon: <InstagramIcon />, href: "https://www.instagram.com/se.tanjang?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
-  { icon: <TiktokIcon />, href: "#", label: "TikTok" },
+  { icon: <InstagramIcon />, href: "https://www.instagram.com/se.tanjang", label: "Instagram" },
+  { icon: <TiktokIcon />, href: "https://www.tiktok.com/@kknidbu70", label: "TikTok" },
 ];
 
 export default function Navbar() {
@@ -64,7 +64,7 @@ export default function Navbar() {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Hero section is ~92vh. We switch to light theme only after passing it.
       const heroThreshold = window.innerHeight * 0.85;
       setScrolled(currentScrollY > heroThreshold);
@@ -75,7 +75,7 @@ export default function Navbar() {
       } else {
         setIsVisible(true);
       }
-      
+
       lastScrollY = currentScrollY;
     };
 
@@ -107,9 +107,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       {/* Smooth Gradient Blur Background */}
       <div
@@ -129,47 +128,47 @@ export default function Navbar() {
             {/* Left — Logo */}
             <Logo size="md" variant={scrolled ? "dark" : "light"} />
 
-          {/* Center — Nav Links (Desktop) */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleScrollTo(e, link.href)}
-                style={{ color: textColorMuted }}
-                className="text-base font-medium transition-colors duration-300"
-                onMouseEnter={(e) => (e.currentTarget.style.color = textColor)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = textColorMuted)}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+            {/* Center — Nav Links (Desktop) */}
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleScrollTo(e, link.href)}
+                  style={{ color: textColorMuted }}
+                  className="text-base font-medium transition-colors duration-300"
+                  onMouseEnter={(e) => (e.currentTarget.style.color = textColor)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = textColorMuted)}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
-          {/* Right — Social Icons (Desktop) */}
-          <div className="hidden md:flex items-center gap-2">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                style={{ color: iconColor, backgroundColor: iconBg }}
-                className="h-9 w-9 rounded-full flex items-center justify-center transition-all duration-300"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = textColor;
-                  e.currentTarget.style.backgroundColor = scrolled ? "rgba(28,30,33,0.12)" : "rgba(255,255,255,0.2)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = iconColor;
-                  e.currentTarget.style.backgroundColor = iconBg;
-                }}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
+            {/* Right — Social Icons (Desktop) */}
+            <div className="hidden md:flex items-center gap-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  style={{ color: iconColor, backgroundColor: iconBg }}
+                  className="h-9 w-9 rounded-full flex items-center justify-center transition-all duration-300"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = textColor;
+                    e.currentTarget.style.backgroundColor = scrolled ? "rgba(28,30,33,0.12)" : "rgba(255,255,255,0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = iconColor;
+                    e.currentTarget.style.backgroundColor = iconBg;
+                  }}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
 
             {/* Mobile Toggle */}
             <button
