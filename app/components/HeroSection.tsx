@@ -1,7 +1,16 @@
-import { ArrowRight } from "lucide-react";
+"use client";
+
+import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 
 export default function HeroSection() {
+  const handleScrollToExploration = () => {
+    const el = document.getElementById("eksplorasi");
+    if (el) {
+      window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="home"
@@ -15,29 +24,28 @@ export default function HeroSection() {
         priority
         className="object-cover object-top"
       />
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/55" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center gap-8">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium text-white leading-[1.12] tracking-tight">
-          Mengabdi dengan Hati,
-          <br />
-          Membangun Jangli & Tandang
+      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center gap-8 pt-10">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-medium text-white leading-[1.2] tracking-tight font-serif max-w-4xl">
+          Gerakan Pemberdayaan Ekonomi Kreatif Berkelanjutan Berbasis Daur Ulang Limbah Tali Plastik Industri
         </h1>
 
-        <p className="text-base sm:text-lg text-white/80 max-w-2xl leading-relaxed">
-          Portal resmi pengabdian KKN Setanjang 2026. Bersama masyarakat Kelurahan Jangli dan Tandang,
-          kami berkolaborasi menciptakan program berkelanjutan yang nyata.
+        <p className="text-base sm:text-lg text-white/85 max-w-3xl leading-relaxed font-sans">
+          Kolaborasi nyata program KKN IDBU 70 Universitas Diponegoro yang bergerak serentak di dua wilayah, yaitu Kelurahan Tandang dan Kelurahan Jangli.
         </p>
 
-        <a
-          href="#about"
-          style={{ backgroundColor: "#2E5A44", color: "#F5F4F0" }}
-          className="mt-2 px-8 py-3.5 rounded-lg text-sm font-medium bg-brand-green-dark text-brand-cream hover:opacity-90 transition-opacity duration-300 flex items-center gap-2 group"
-        >
-          Jelajahi Program
-          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-        </a>
+        <div className="pt-4 animate-bounce">
+          <button
+            onClick={handleScrollToExploration}
+            style={{ backgroundColor: "#2E5A44", color: "#F5F4F0" }}
+            className="h-12 w-12 rounded-full flex items-center justify-center hover:opacity-90 shadow-md transition-opacity duration-300"
+            aria-label="Scroll to exploration"
+          >
+            <ArrowDown className="h-5 w-5" />
+          </button>
+        </div>
       </div>
     </section>
   );

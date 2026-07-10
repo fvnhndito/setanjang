@@ -1,9 +1,6 @@
 import Navbar from "@/app/components/Navbar";
 import HeroSection from "@/app/components/HeroSection";
-import TeamSection from "@/app/components/TeamSection";
-import AboutSection from "@/app/components/AboutSection";
-import WilayahSection from "@/app/components/WilayahSection";
-import UmkmShowcase from "@/app/components/UmkmShowcase";
+import LashingSection from "@/app/components/LashingSection";
 import Footer from "@/app/components/Footer";
 
 export default function Home() {
@@ -13,10 +10,7 @@ export default function Home() {
 
       <div className="flex-1 flex flex-col">
         <HeroSection />
-        <TeamSection />
-        <AboutSection />
-        <UmkmShowcase />
-        <WilayahSection />
+        <LashingSection />
       </div>
 
       <Footer />

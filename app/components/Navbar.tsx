@@ -50,12 +50,18 @@ export default function Navbar() {
         { label: "Soshum", href: "#md2-soshum" },
         { label: "Sosmas", href: "#sosmas" },
       ];
+    } else if (pathname === "/kkn") {
+      return [
+        { label: "Home", href: "/" },
+        { label: "Tali Lashing", href: "/#lashing" },
+        { label: "Tim KKN", href: "/kkn" },
+      ];
     }
     // Default Home Links
     return [
-      { label: "About", href: "#about" },
-      { label: "UMKM", href: "#umkm" },
-      { label: "Wilayah", href: "#wilayah" },
+      { label: "Home", href: "#home" },
+      { label: "Tali Lashing", href: "#lashing" },
+      { label: "Tim KKN", href: "/kkn" },
     ];
   })();
 
@@ -87,15 +93,19 @@ export default function Navbar() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    if (href.startsWith("#")) {
+    setIsOpen(false);
+    if (href.startsWith("#") && pathname === "/") {
       e.preventDefault();
-      setIsOpen(false);
       const el = document.getElementById(href.replace("#", ""));
       if (el) {
         window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
       }
-    } else {
-      setIsOpen(false);
+    } else if (href.startsWith("/#") && pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById(href.replace("/#", ""));
+      if (el) {
+        window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+      }
     }
   };
 

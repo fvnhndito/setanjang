@@ -32,14 +32,14 @@ export default function Footer() {
               Navigasi
             </h4>
             <div className="flex flex-col gap-3">
-              <a href="#home" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+              <a href="/" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
                 Home
               </a>
-              <a href="#about" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
-                About Us
+              <a href="/#lashing" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+                Tali Lashing
               </a>
-              <a href="#kelurahan" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
-                Profil Desa
+              <a href="/kkn" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+                Tim KKN
               </a>
             </div>
           </div>
