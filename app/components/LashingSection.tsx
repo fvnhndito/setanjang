@@ -12,6 +12,9 @@ import {
   Bookmark,
   Compass,
   Zap,
+  Hammer,
+  Megaphone,
+  Truck,
 } from "lucide-react";
 
 export default function LashingSection() {
@@ -19,14 +22,17 @@ export default function LashingSection() {
     {
       title: "Tantangan Produksi",
       desc: "Keterbatasan teknik pengolahan, variasi desain yang masih sedikit, dan kualitas finishing yang belum konsisten untuk bersaing di pasar luas.",
+      icon: <Hammer className="h-5 w-5 text-[#2E5A44]" />,
     },
     {
       title: "Tantangan Manajemen & Pasar",
       desc: "Pelaku usaha rumahan masih minim strategi branding, pencatatan keuangan belum terstruktur, dan belum memanfaatkan platform digital secara optimal.",
+      icon: <Megaphone className="h-5 w-5 text-[#2E5A44]" />,
     },
     {
       title: "Tantangan Rantai Pasok",
       desc: "Kurangnya koordinasi dan belum tersedianya wadah pengumpulan limbah tali plastik industri secara terstruktur di tingkat komunitas warga.",
+      icon: <Truck className="h-5 w-5 text-[#2E5A44]" />,
     },
   ];
 
@@ -173,11 +179,19 @@ export default function LashingSection() {
           {/* Right - Product Highlight Visual (Asymmetric Collage Frame) */}
           <div className="lg:col-span-5 flex justify-center w-full pt-6 lg:pt-0">
             <div className="relative w-full max-w-[460px] aspect-[4/3] group select-none">
-              {/* Decorative offset bg card */}
-              <div className="absolute inset-0 bg-brand-green-dark/10 dark:bg-brand-green-light/5 rounded-3xl translate-x-3.5 translate-y-3.5 rotate-2 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:rotate-0" />
+              {/* Decorative offset bg card using backimage.png */}
+              <div className="absolute inset-0 rounded-3xl translate-x-3.5 translate-y-3.5 rotate-2 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:rotate-0 overflow-hidden opacity-95 border border-brand-charcoal/5 shadow-md">
+                <Image
+                  src="/backimage.png"
+                  alt="Dekorasi Latar"
+                  fill
+                  sizes="(max-w-7xl) 100vw, 400px"
+                  className="object-cover"
+                />
+              </div>
               
               {/* Main image container */}
-              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-lg border border-brand-charcoal/5 bg-brand-cream">
+              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-lg border border-brand-charcoal/5 bg-brand-cream z-10">
                 <Image
                   src="/lashing-artisan.jpg"
                   alt="Pengrajin Tali Lashing"
@@ -186,10 +200,6 @@ export default function LashingSection() {
                   sizes="(max-w-7xl) 100vw, 500px"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* Absolute badge overlay */}
-                <div className="absolute bottom-4 left-4 bg-brand-charcoal/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-xl text-[10px] font-bold text-white uppercase tracking-wider shadow-md">
-                  Dokumentasi KKN Undip 2026
-                </div>
               </div>
             </div>
           </div>
@@ -199,12 +209,12 @@ export default function LashingSection() {
       {/* SECTION 3: Peta Masalah Industri Daur Ulang (Why) */}
       <section className="px-5 sm:px-6 lg:px-8 py-24 md:py-28 max-w-[1440px] mx-auto border-t border-brand-charcoal/5">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-green-dark/10 text-brand-green-dark">
-            <AlertTriangle className="h-3.5 w-3.5" />
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#2E5A44] text-[#F5F4F0] border border-[#2E5A44]/15 shadow-sm">
+            <AlertTriangle className="h-3.5 w-3.5 text-brand-green-light" />
             Identifikasi Tantangan
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif text-brand-charcoal leading-tight">
-            Peta Masalah Industri Kriya Daur Ulang
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-charcoal leading-tight">
+            Peta Masalah <span className="text-brand-green-dark font-serif italic">Industri Kriya Daur Ulang</span>
           </h2>
           <div className="h-[2px] w-12 bg-brand-green-dark/30 mx-auto my-2" />
           <p className="text-sm sm:text-base text-brand-charcoal/60 leading-relaxed font-sans max-w-xl mx-auto">
@@ -212,23 +222,26 @@ export default function LashingSection() {
           </p>
         </div>
 
-        {/* 3 Columns Grid for Problems (Glassmorphic Glow Style) */}
+        {/* 3 Columns Grid for Problems */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {problems.map((item, idx) => (
             <div
               key={idx}
-              className="relative bg-white dark:bg-brand-charcoal p-8 rounded-3xl border border-brand-charcoal/5 shadow-sm hover:border-brand-green-dark/20 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="relative bg-white dark:bg-brand-charcoal p-8 rounded-3xl border border-brand-charcoal/5 shadow-sm hover:border-[#2E5A44]/25 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
-              {/* Giant editorial number in background */}
-              <span className="font-serif text-[7.5rem] font-light text-brand-charcoal/[0.03] dark:text-brand-cream/[0.02] select-none pointer-events-none absolute right-4 bottom-2 leading-none">
+              {/* Giant editorial number in background - light green/emerald tint */}
+              <span className="font-serif text-[7.5rem] font-light text-green-600/[0.06] dark:text-emerald-500/[0.04] select-none pointer-events-none absolute right-4 bottom-2 leading-none">
                 {`0${idx + 1}`}
               </span>
 
               <div className="space-y-6 relative z-10">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold text-brand-green-dark dark:text-brand-green-light uppercase tracking-widest bg-brand-green-dark/5 dark:bg-brand-green-light/5 px-2.5 py-1 rounded-md">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold text-brand-green-dark dark:text-brand-green-light uppercase tracking-widest bg-[#2E5A44]/5 dark:bg-brand-green-light/5 px-2.5 py-1 rounded-md">
                     {`Tantangan 0${idx + 1}`}
                   </span>
+                  <div className="h-10 w-10 rounded-xl bg-[#2E5A44]/5 dark:bg-brand-green-light/5 flex items-center justify-center">
+                    {item.icon}
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <h4 className="text-lg font-bold text-brand-charcoal font-sans">
