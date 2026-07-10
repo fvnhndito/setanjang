@@ -49,7 +49,7 @@ export default function TandangPage() {
         {/* ────────────────────────────────────
             PROFIL KELURAHAN
         ──────────────────────────────────── */}
-        <section id="profil-tandang" className="px-5 sm:px-6 lg:px-8 py-20 md:py-28 bg-white">
+        <section id="profil-tandang" className="px-5 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-10 md:pb-12 bg-[#F5F4F0]">
           <div className="max-w-[1440px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-brand-charcoal/8">
               <div className="bg-brand-charcoal p-10 md:p-14 flex flex-col justify-between min-h-[420px]">
@@ -92,7 +92,7 @@ export default function TandangPage() {
         {/* ────────────────────────────────────
             PENGRAJIN & KATALOG PRODUK
         ──────────────────────────────────── */}
-        <section id="pengrajin" className="px-5 sm:px-6 lg:px-8 py-20 md:py-28 bg-[#F5F4F0]">
+        <section id="pengrajin" className="px-5 sm:px-6 lg:px-8 pt-10 md:pt-12 pb-20 md:pb-28 bg-[#F5F4F0]">
           <div className="max-w-[1440px] mx-auto">
 
             {/* ── Pengrajin Heading ── */}

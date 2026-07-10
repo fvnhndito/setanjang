@@ -63,15 +63,15 @@ export default function TeamSection() {
   };
 
   const coreTeam = [
-    { name: "Daffa", role: "Ketua Tim KKN IDBU 70", image: "/FotoTeam/Daffa.jpg" },
-    { name: "Geulies", role: "Sekretaris KKN IDBU 70", image: "/FotoTeam/Geulis.jpg" },
-    { name: "Anggi", role: "Bendahara KKN IDBU 70", image: "/FotoTeam/Anggi.jpg" },
+    { name: "Daffa", role: "Ketua Tim KKN IDBU 70", image: "/Foto Team/Daffa.jpg" },
+    { name: "Geulies", role: "Sekretaris KKN IDBU 70", image: "/Foto Team/Geulis.jpg" },
+    { name: "Anggi", role: "Bendahara KKN IDBU 70", image: "/Foto Team/Anggi.jpg" },
   ];
 
   const dplTeam = [
-    { name: "Ibu Annisa", role: "Dosen Pembimbing Lapangan", image: "/FotoTeam/BuAnnisa.JPG" },
-    { name: "Pak Kholidin", role: "Dosen Pembimbing Lapangan", image: "/FotoTeam/PakKholidin.jpg" },
-    { name: "Pak Herry", role: "Dosen Pembimbing Lapangan", image: "/FotoTeam/PakHerry.JPG" },
+    { name: "Ibu Annisa", role: "Dosen Pembimbing Lapangan", image: "/Foto Team/BuAnnisa.JPG" },
+    { name: "Pak Kholidin", role: "Dosen Pembimbing Lapangan", image: "/Foto Team/PakKholidin.jpg" },
+    { name: "Pak Herry", role: "Dosen Pembimbing Lapangan", image: "/Foto Team/PakHerry.JPG" },
   ];
 
 
@@ -79,49 +79,49 @@ export default function TeamSection() {
     {
       name: "Koordinator Kelurahan",
       desc: "Memimpin koordinasi program kerja di kelurahan, menjadi penghubung utama dengan aparat setempat, dan memastikan keselarasan agenda tim.",
-      members: [{ name: "Ilham", role: "Koordinator Kelurahan", image: "/FotoTeam/Ilham.jpg" }],
+      members: [{ name: "Ilham", role: "Koordinator Kelurahan", image: "/Foto Team/Ilham.jpg" }],
     },
     {
       name: "Sekretaris & Bendahara",
       desc: "Mengurus administrasi surat-menyurat, perizinan program, pembukuan anggaran, serta pelaporan keuangan KKN tingkat kelurahan.",
       members: [
-        { name: "Balqis", role: "Sekretaris Kelurahan", image: "/FotoTeam/Balqis.jpg" },
-        { name: "Naia", role: "Bendahara Kelurahan", image: "/FotoTeam/Naia.jpg" },
+        { name: "Balqis", role: "Sekretaris Kelurahan", image: "/Foto Team/Balqis.jpg" },
+        { name: "Naia", role: "Bendahara Kelurahan", image: "/Foto Team/Naia.jpg" },
       ],
     },
     {
       name: "Divisi Acara",
       desc: "Merancang konsep kegiatan sosialisasi, menyusun rundown acara, dan mengatur jalannya pelaksanaan program kerja di lapangan.",
       members: [
-        { name: "Danis", role: "Anggota Divisi", image: "/FotoTeam/Danis.jpg" },
-        { name: "Mutia", role: "Anggota Divisi", image: "/FotoTeam/Muthia.jpg" },
+        { name: "Danis", role: "Anggota Divisi", image: "/Foto Team/Danis.jpg" },
+        { name: "Mutia", role: "Anggota Divisi", image: "/Foto Team/Muthia.jpg" },
       ],
     },
     {
       name: "Divisi Humas",
       desc: "Menjalin komunikasi aktif dengan warga, tokoh masyarakat, dan mitra eksternal untuk penyebaran info kegiatan KKN.",
       members: [
-        { name: "Rafael", role: "Anggota Divisi", image: "/FotoTeam/Rafael.jpg" },
-        { name: "Naufal", role: "Anggota Divisi", image: "/FotoTeam/Naufal.jpg" },
-        { name: "Dinda", role: "Anggota Divisi", image: "/FotoTeam/Dinda.jpg" },
+        { name: "Rafael", role: "Anggota Divisi", image: "/Foto Team/Rafael.jpg" },
+        { name: "Naufal", role: "Anggota Divisi", image: "/Foto Team/Naufal.jpg" },
+        { name: "Dinda", role: "Anggota Divisi", image: "/Foto Team/Dinda.jpg" },
       ],
     },
     {
       name: "Divisi Logistik",
       desc: "Mengoordinasikan pengadaan alat, transportasi, konsumsi tim, serta memastikan kesiapan fasilitas pendukung kegiatan.",
       members: [
-        { name: "Echa", role: "Anggota Divisi", image: "/FotoTeam/Echa.jpg" },
-        { name: "Yusuf", role: "Anggota Divisi", image: "/FotoTeam/Yusuf.jpg" },
-        { name: "Ihsan", role: "Anggota Divisi", image: "/FotoTeam/Ikhsan.jpg" },
+        { name: "Echa", role: "Anggota Divisi", image: "/Foto Team/Echa.jpg" },
+        { name: "Yusuf", role: "Anggota Divisi", image: "/Foto Team/Yusuf.jpg" },
+        { name: "Ihsan", role: "Anggota Divisi", image: "/Foto Team/Ikhsan.jpg" },
       ],
     },
     {
       name: "Divisi PDD",
       desc: "Mendokumentasikan seluruh rangkaian kegiatan, mendesain media publikasi visual, serta mengelola publikasi digital portal KKN.",
       members: [
-        { name: "Eti", role: "Anggota Divisi", image: "/FotoTeam/Eti.jpg" },
-        { name: "Ibrizi", role: "Anggota Divisi", image: "/FotoTeam/Hibrizi.jpg" },
-        { name: "Hanif", role: "Anggota Divisi", image: "/FotoTeam/Hanif.jpg" },
+        { name: "Eti", role: "Anggota Divisi", image: "/Foto Team/Eti.jpg" },
+        { name: "Ibrizi", role: "Anggota Divisi", image: "/Foto Team/Hibrizi.jpg" },
+        { name: "Hanif", role: "Anggota Divisi", image: "/Foto Team/Hanif.jpg" },
       ],
     },
   ];
@@ -130,48 +130,48 @@ export default function TeamSection() {
     {
       name: "Koordinator Kelurahan",
       desc: "Memimpin koordinasi program kerja di kelurahan, menjadi penghubung utama dengan aparat setempat, dan memastikan keselarasan agenda tim.",
-      members: [{ name: "Aryo", role: "Koordinator Kelurahan", image: "/FotoTeam/Aryo.jpg" }],
+      members: [{ name: "Aryo", role: "Koordinator Kelurahan", image: "/Foto Team/Aryo.jpg" }],
     },
     {
       name: "Sekretaris & Bendahara",
       desc: "Mengurus administrasi surat-menyurat, perizinan program, pembukuan anggaran, serta pelaporan keuangan KKN tingkat kelurahan.",
       members: [
-        { name: "Vadin", role: "Sekretaris Kelurahan", image: "/FotoTeam/Vadine.jpg" },
-        { name: "Zara", role: "Bendahara Kelurahan", image: "/FotoTeam/Zara.jpg" },
+        { name: "Vadin", role: "Sekretaris Kelurahan", image: "/Foto Team/Vadine.jpg" },
+        { name: "Zara", role: "Bendahara Kelurahan", image: "/Foto Team/Zara.jpg" },
       ],
     },
     {
       name: "Divisi Acara",
       desc: "Merancang konsep kegiatan sosialisasi, menyusun rundown acara, dan mengatur jalannya pelaksanaan program kerja di lapangan.",
       members: [
-        { name: "Dito", role: "Anggota Divisi", image: "/FotoTeam/Dito.jpg" },
-        { name: "Ilfa", role: "Anggota Divisi", image: "/FotoTeam/Ilfa.jpg" },
+        { name: "Dito", role: "Anggota Divisi", image: "/Foto Team/Dito.jpg" },
+        { name: "Ilfa", role: "Anggota Divisi", image: "/Foto Team/Ilfa.jpg" },
       ],
     },
     {
       name: "Divisi Humas",
       desc: "Menjalin komunikasi aktif dengan warga, tokoh masyarakat, dan mitra eksternal untuk penyebaran info kegiatan KKN.",
       members: [
-        { name: "Dwi", role: "Anggota Divisi", image: "/FotoTeam/Dwi.jpg" },
-        { name: "Mukhlis", role: "Anggota Divisi", image: "/FotoTeam/Mukhlis.jpg" },
+        { name: "Dwi", role: "Anggota Divisi", image: "/Foto Team/Dwi.jpg" },
+        { name: "Mukhlis", role: "Anggota Divisi", image: "/Foto Team/Mukhlis.jpg" },
       ],
     },
     {
       name: "Divisi Logistik",
       desc: "Mengoordinasikan pengadaan alat, transportasi, konsumsi tim, serta memastikan kesiapan fasilitas pendukung kegiatan.",
       members: [
-        { name: "Tirza", role: "Anggota Divisi", image: "/FotoTeam/Tirza.jpg" },
-        { name: "Argy", role: "Anggota Divisi", image: "/FotoTeam/Argy.jpg" },
-        { name: "Fairuz", role: "Anggota Divisi", image: "/FotoTeam/Fairuz.jpg" },
+        { name: "Tirza", role: "Anggota Divisi", image: "/Foto Team/Tirza.jpg" },
+        { name: "Argy", role: "Anggota Divisi", image: "/Foto Team/Argy.jpg" },
+        { name: "Fairuz", role: "Anggota Divisi", image: "/Foto Team/Fairuz.jpg" },
       ],
     },
     {
       name: "Divisi PDD",
       desc: "Mendokumentasikan seluruh rangkaian kegiatan, mendesain media publikasi visual, serta mengelola publikasi digital portal KKN.",
       members: [
-        { name: "Nabila", role: "Anggota Divisi", image: "/FotoTeam/Nabila.jpg" },
-        { name: "Farrel", role: "Anggota Divisi", image: "/FotoTeam/Farrel.jpg" },
-        { name: "Imron", role: "Anggota Divisi", image: "/FotoTeam/Imron.jpg" },
+        { name: "Nabila", role: "Anggota Divisi", image: "/Foto Team/Nabila.jpg" },
+        { name: "Farrel", role: "Anggota Divisi", image: "/Foto Team/Farrel.jpg" },
+        { name: "Imron", role: "Anggota Divisi", image: "/Foto Team/Imron.jpg" },
       ],
     },
   ];
@@ -185,7 +185,7 @@ export default function TeamSection() {
   };
 
   return (
-    <section id="about" className="px-5 sm:px-6 lg:px-8 py-20 md:py-28 bg-[#F5F4F0] dark:bg-[#121314]">
+    <section id="about" className="px-5 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-10 md:pb-12 bg-white">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header Section */}
@@ -381,8 +381,8 @@ export default function TeamSection() {
                   key={i}
                   onClick={() => handleDivisionClick(i)}
                   className={`px-5 py-2 rounded-full font-sans text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${activeDivisionIndex === i
-                      ? "bg-brand-charcoal text-white shadow-sm scale-105"
-                      : "bg-white text-brand-charcoal/70 border border-brand-charcoal/5 hover:bg-white/80 hover:scale-105"
+                    ? "bg-brand-charcoal text-white shadow-sm scale-105"
+                    : "bg-white text-brand-charcoal/70 border border-brand-charcoal/5 hover:bg-white/80 hover:scale-105"
                     }`}
                 >
                   {div.name}
@@ -402,8 +402,8 @@ export default function TeamSection() {
                     key={tab.id}
                     onClick={() => handleTabChange(tab.id as "tandang" | "jangli")}
                     className={`px-5 py-2.5 rounded-full font-sans text-sm font-semibold transition-all duration-300 ${isActive
-                        ? "bg-brand-charcoal text-white shadow-md scale-105"
-                        : "bg-white/80 text-brand-charcoal hover:bg-white border border-black/5 hover:border-black/10 hover:shadow-sm"
+                      ? "bg-brand-charcoal text-white shadow-md scale-105"
+                      : "bg-white/80 text-brand-charcoal hover:bg-white border border-black/5 hover:border-black/10 hover:shadow-sm"
                       }`}
                   >
                     {tab.name}

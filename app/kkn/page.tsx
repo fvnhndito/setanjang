@@ -1,7 +1,7 @@
 import Navbar from "@/app/components/Navbar";
 import TeamSection from "@/app/components/TeamSection";
 import AboutSection from "@/app/components/AboutSection";
-import UmkmShowcase from "@/app/components/UmkmShowcase";
+import ProgramsSection from "@/app/components/ProgramsSection";
 import Footer from "@/app/components/Footer";
 
 export const metadata = {
@@ -14,11 +14,11 @@ export default function KknPage() {
     <>
       <Navbar />
 
-      <div className="flex-1 flex flex-col pt-16">
+      <div className="flex-1 flex flex-col">
         {/* Render team first as requested */}
         <TeamSection />
         <AboutSection />
-        <UmkmShowcase />
+        <ProgramsSection />
       </div>
 
       <Footer />

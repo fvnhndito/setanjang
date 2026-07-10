@@ -36,11 +36,9 @@ export default function Navbar() {
     if (pathname === "/jangli") {
       return [
         { label: "Home", href: "/" },
-        { label: "Profil", href: "#profil-jangli" },
+        { label: "Profil Kelurahan", href: "#profil-jangli" },
         { label: "Pengrajin", href: "#pengrajin" },
-        { label: "Saintek", href: "#md2-saintek" },
-        { label: "Soshum", href: "#md2-soshum" },
-        { label: "Sosmas", href: "#sosmas" },
+        { label: "Katalog", href: "#katalog" },
       ];
     } else if (pathname.startsWith("/tandang")) {
       return [
@@ -111,36 +109,51 @@ export default function Navbar() {
   };
 
   // Dynamic colors based on scroll state
-  const textColor = scrolled ? "#1C1E21" : "#FFFFFF";
-  const textColorMuted = scrolled ? "rgba(28,30,33,0.7)" : "rgba(255,255,255,0.9)";
-  const iconBg = scrolled ? "rgba(28,30,33,0.08)" : "rgba(255,255,255,0.1)";
-  const iconColor = scrolled ? "rgba(28,30,33,0.6)" : "rgba(255,255,255,0.7)";
+  const isKknPage = pathname === "/kkn";
+  const useDarkText = isKknPage || scrolled;
+
+  const textColor = useDarkText ? "#1C1E21" : "#FFFFFF";
+  const textColorMuted = useDarkText ? "rgba(28,30,33,0.7)" : "rgba(255,255,255,0.9)";
+  const iconBg = useDarkText ? "rgba(28,30,33,0.08)" : "rgba(255,255,255,0.1)";
+  const iconColor = useDarkText ? "rgba(28,30,33,0.6)" : "rgba(255,255,255,0.7)";
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-full"
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[calc(100%+32px)]"
         }`}
     >
-      {/* Smooth Gradient Blur Background */}
+      {/* Background tint - extends slightly and fades out to avoid sharp cut */}
       <div
-        className="absolute inset-0 pointer-events-none transition-colors duration-500"
+        className="absolute inset-x-0 top-0 pointer-events-none transition-colors duration-500 -z-10"
         style={{
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-          backgroundColor: scrolled ? "rgba(245, 244, 240, 0.6)" : "rgba(28, 30, 33, 0.3)",
-          maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+          height: "calc(100% + 32px)",
+          background: scrolled 
+            ? "linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 70%, transparent 100%)" 
+            : (isKknPage 
+                ? "linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 70%, transparent 100%)" 
+                : "linear-gradient(to bottom, rgba(28, 30, 33, 0.2) 70%, transparent 100%)"),
         }}
       />
 
-      <div className="relative px-5 sm:px-6 lg:px-8 pt-5 pb-8">
+      {/* Corrected Progressive blur - smooth fade out */}
+      <div
+        className="absolute inset-x-0 top-0 pointer-events-none -z-20"
+        style={{ height: "calc(100% + 32px)" }}
+      >
+        <div className="absolute inset-0" style={{ backdropFilter: "blur(2px)", WebkitBackdropFilter: "blur(2px)", maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)" }} />
+        <div className="absolute inset-0" style={{ backdropFilter: "blur(4px)", WebkitBackdropFilter: "blur(4px)", maskImage: "linear-gradient(to bottom, black 50%, transparent 90%)", WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 90%)" }} />
+        <div className="absolute inset-0" style={{ backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", maskImage: "linear-gradient(to bottom, black 30%, transparent 70%)", WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 70%)" }} />
+        <div className="absolute inset-0" style={{ backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", maskImage: "linear-gradient(to bottom, black 0%, transparent 50%)", WebkitMaskImage: "linear-gradient(to bottom, black 0%, transparent 50%)" }} />
+      </div>
+
+      <div className="relative px-5 sm:px-6 lg:px-8 py-4">
         <div className="max-w-[1440px] mx-auto w-full">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative">
             {/* Left — Logo */}
-            <Logo size="md" variant={scrolled ? "dark" : "light"} />
+            <Logo size="md" variant={useDarkText ? "dark" : "light"} />
 
             {/* Center — Nav Links (Desktop) */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
@@ -197,8 +210,8 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         style={{
-          backgroundColor: scrolled ? "rgba(245,244,240,0.98)" : "rgba(28,30,33,0.95)",
-          borderTop: scrolled ? "1px solid rgba(28,30,33,0.06)" : "1px solid rgba(255,255,255,0.05)",
+          backgroundColor: useDarkText ? "rgba(245,244,240,0.98)" : "rgba(28,30,33,0.95)",
+          borderTop: useDarkText ? "1px solid rgba(28,30,33,0.06)" : "1px solid rgba(255,255,255,0.05)",
           opacity: isOpen ? 1 : 0,
           transform: isOpen ? "translateY(0)" : "translateY(-8px)",
           pointerEvents: isOpen ? "auto" : "none",
@@ -211,7 +224,7 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               onClick={(e) => handleScrollTo(e, link.href)}
-              style={{ color: scrolled ? "rgba(28,30,33,0.8)" : "rgba(255,255,255,0.85)" }}
+              style={{ color: useDarkText ? "rgba(28,30,33,0.8)" : "rgba(255,255,255,0.85)" }}
               className="block py-3 text-base font-medium transition-colors"
             >
               {link.label}
@@ -220,7 +233,7 @@ export default function Navbar() {
 
           {/* Social row in mobile */}
           <div
-            style={{ borderTop: scrolled ? "1px solid rgba(28,30,33,0.08)" : "1px solid rgba(255,255,255,0.1)" }}
+            style={{ borderTop: useDarkText ? "1px solid rgba(28,30,33,0.08)" : "1px solid rgba(255,255,255,0.1)" }}
             className="flex items-center gap-3 pt-4 mt-3"
           >
             {socialLinks.map((social) => (
@@ -231,8 +244,8 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 aria-label={social.label}
                 style={{
-                  color: scrolled ? "rgba(28,30,33,0.6)" : "rgba(255,255,255,0.7)",
-                  backgroundColor: scrolled ? "rgba(28,30,33,0.06)" : "rgba(255,255,255,0.1)",
+                  color: useDarkText ? "rgba(28,30,33,0.6)" : "rgba(255,255,255,0.7)",
+                  backgroundColor: useDarkText ? "rgba(28,30,33,0.06)" : "rgba(255,255,255,0.1)",
                 }}
                 className="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300"
               >

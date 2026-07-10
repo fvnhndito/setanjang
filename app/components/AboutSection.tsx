@@ -25,51 +25,55 @@ const pillars = [
 
 export default function AboutSection() {
   return (
-    <section id="pillars" className="px-5 sm:px-6 lg:px-8 py-20 md:py-28 bg-white dark:bg-[#1A1B1D] border-t border-brand-charcoal/5">
+    <section id="pillars" className="px-5 sm:px-6 lg:px-8 pt-10 md:pt-16 pb-20 md:pb-28 bg-white border-t border-brand-charcoal/5">
       <div className="max-w-[1440px] mx-auto">
-        {/* ── "Why Choosing Us" style layout ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
-          {/* Left — Big Heading */}
-          <div className="lg:col-span-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-green-dark">
-              Tentang Kami
-            </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-[2.75rem] font-serif text-brand-charcoal leading-tight">
-              Mengapa
-              <br />
-              KKN Setanjang?
-            </h2>
-          </div>
-
-          {/* Right — Description */}
-          <div className="lg:col-span-8 flex items-end">
-            <p className="text-base text-brand-charcoal/60 leading-relaxed max-w-2xl">
-              KKN Setanjang 2026 merupakan wadah dedikasi mahasiswa untuk
-              turun langsung bermitra dengan masyarakat Kelurahan Jangli dan Tandang. Kami merancang
-              empat pilar program kerja strategis yang berfokus pada
-              pemberdayaan lokal yang berkelanjutan.
-            </p>
-          </div>
+        {/* Centered Header Section */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-green-dark/10 text-brand-green-dark">
+            Tentang Kami
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-charcoal leading-tight">
+            Mengapa KKN Setanjang?
+          </h2>
+          <div className="h-[2px] w-16 bg-brand-green-dark/30 mx-auto my-6" />
+          <p className="text-base sm:text-lg text-brand-charcoal/70 leading-relaxed mx-auto">
+            KKN Setanjang 2026 merupakan wadah dedikasi mahasiswa untuk
+            turun langsung bermitra dengan masyarakat Kelurahan Jangli dan Tandang. Kami merancang
+            empat pilar program kerja strategis yang berfokus pada
+            pemberdayaan lokal yang berkelanjutan.
+          </p>
         </div>
 
-        {/* ── Pillars Grid (like product/feature cards) ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {pillars.map((pillar, i) => (
-            <div
-              key={i}
-              className="group p-7 rounded-2xl border border-brand-charcoal/8 bg-white hover:bg-brand-charcoal hover:border-brand-charcoal transition-all duration-300"
-            >
-              <div className="h-12 w-12 rounded-xl bg-brand-cream flex items-center justify-center mb-6 text-brand-green-dark group-hover:bg-white/10 group-hover:text-white transition-colors duration-300">
-                {pillar.icon}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {pillars.map((pillar, i) => {
+            const cardGradients = [
+              "from-[#fdf1f6] to-[#f4d5e3]",
+              "from-[#eef3f9] to-[#d3e3f3]",
+              "from-[#f0f8f1] to-[#d6efda]",
+              "from-[#fff8ee] to-[#fde5c5]",
+            ];
+            
+            return (
+              <div
+                key={i}
+                className="group relative bg-[#F5F4F0] rounded-[32px] p-8 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col min-h-[300px]"
+              >
+                <div className={`absolute -right-8 -top-8 w-32 h-32 bg-gradient-to-br ${cardGradients[i % cardGradients.length]} rounded-full blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
+                
+                <div className="relative z-10 flex-1 flex flex-col">
+                  <div className="h-14 w-14 rounded-2xl bg-white flex items-center justify-center mb-6 text-brand-green-dark group-hover:scale-110 shadow-sm transition-transform duration-500">
+                    {pillar.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-charcoal mb-4">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-sm text-brand-charcoal/60 leading-relaxed">
+                    {pillar.desc}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-brand-charcoal mb-3 group-hover:text-white transition-colors duration-300">
-                {pillar.title}
-              </h3>
-              <p className="text-sm text-brand-charcoal/55 leading-relaxed group-hover:text-white/60 transition-colors duration-300">
-                {pillar.desc}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
