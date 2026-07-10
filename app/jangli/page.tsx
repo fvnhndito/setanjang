@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
@@ -16,6 +16,7 @@ import {
   Phone,
   User,
   Store,
+  X,
 } from "lucide-react";
 import { SiShopee, SiWhatsapp } from "react-icons/si";
 import Link from "next/link";
@@ -34,23 +35,25 @@ const stats = [
 const pengrajin = [
   {
     id: 1,
-    name: "Ibu Sari Rahayu",
+    name: "Pak Polidin",
     role: "Pengrajin Tali Lashing — RW 04",
     desc: "Berpengalaman 5 tahun dalam mengolah limbah tali plastik industri menjadi tas, keranjang, dan perabot rumah tangga yang berkualitas tinggi.",
     products: ["Tas Anyam", "Keranjang Serbaguna", "Tempat Tisu"],
     phone: "0812-xxxx-xxxx",
     shopee: "#",
     tokopedia: "#",
+    image: "/Pak%20Polidin.jpeg",
   },
   {
     id: 2,
-    name: "Ibu Dewi Lestari",
+    name: "Pak Khamto",
     role: "Pengrajin Tali Lashing — RW 04",
-    desc: "Spesialis pembuatan produk dekoratif rumah dari tali lashing daur ulang. Aktif dalam komunitas PKK dan pelatihan kewirausahaan lokal.",
+    desc: "Spesialis pembuatan produk fungsional dari tali lashing daur ulang. Berperan aktif dalam membina keterampilan kewirausahaan warga setempat.",
     products: ["Pot Bunga", "Hiasan Dinding", "Sandal Anyam"],
     phone: "0813-xxxx-xxxx",
     shopee: "#",
     tokopedia: "#",
+    image: "/Pak%20Khamto.jpeg",
   },
   {
     id: 3,
@@ -72,6 +75,7 @@ const katalogProduk = [
     desc: "Tas serbaguna berbahan dasar tali plastik daur ulang dengan anyaman kuat dan motif khas Jangli.",
     price: "Rp 75.000",
     color: "bg-[#2E5A44]/8",
+    image: "/Produk-Jangli-1.jpeg",
   },
   {
     id: 2,
@@ -133,12 +137,60 @@ const sosmasData = [
   { id: 15, name: "Mahasiswa 15", title: "Dokumentasi Potensi Wisata Lokal", tag: "Ekonomi", desc: "Pemetaan dan dokumentasi foto/video potensi wisata edukasi dan budaya di kawasan Kelurahan Jangli." },
 ];
 
+const md2SaintekData = [
+  {
+    id: 1,
+    title: "Peningkatan Kapasitas Masyarakat dalam Pemanfaatan Limbah Organik Rumah Tangga Menjadi Pupuk Organik Berkelanjutan di Kelurahan Jangli",
+    summary: "Program ini berfokus pada pengembangan limbah organik rumah tangga menjadi produk yang bermanfaat melalui penerapan konsep ekonomi sirkular berupa Eco-Enzyme.",
+    potensi: "RT 3 RW 3 Kelurahan Jangli memiliki potensi besar dalam pemanfaatan limbah organik rumah tangga menjadi produk yang bernilai guna bagi masyarakat. Selain itu, sebagian besar warga memiliki tanaman di pekarangan rumah sehingga hasil pengolahan limbah organik berupa Eco-Enzyme dapat dimanfaatkan sebagai pupuk organik untuk meningkatkan kesuburan tanaman.",
+    permasalahan: "Pengelolaan limbah organik rumah tangga di lingkungan masyarakat masih belum optimal. Kesadaran masyarakat terhadap pemanfaatan sampah organik juga masih rendah. Sebagian besar limbah organik seperti sisa sayuran, kulit buah, dan sisa bahan pangan lainnya masih dibuang secara langsung tanpa melalui proses pengolahan atau pemanfaatan kembali, sehingga berpotensi menambah volume sampah dan menimbulkan dampak lingkungan.",
+    lokasi: "RT 3 RW 3, Kelurahan Jangli, Kecamatan Tembalang, Kota Semarang.",
+    narasumber: [
+      "Ketua RT 3 RW 3 Kelurahan Jangli",
+      "Pengrajin RT 3 RW 3 Kelurahan Jangli"
+    ],
+    usulan: "Program ini berfokus pada pengembangan limbah organik rumah tangga menjadi produk yang bermanfaat melalui penerapan konsep ekonomi sirkular. Limbah organik seperti sisa sayuran, kulit buah, dan bahan organik lainnya diolah menjadi Eco-Enzyme melalui proses fermentasi menggunakan mikroorganisme. Program ini bertujuan mengurangi akumulasi sampah organik sekaligus menghasilkan produk ramah lingkungan yang dapat dimanfaatkan kembali oleh masyarakat sebagai pupuk organik.",
+    metode: [
+      "Identifikasi potensi dan permasalahan di lingkungan masyarakat.",
+      "Diskusi dan koordinasi bersama warga terkait pengelolaan limbah organik.",
+      "Sosialisasi mengenai manfaat dan proses pembuatan Eco-Enzyme.",
+      "Praktik langsung pembuatan Eco-Enzyme bersama masyarakat.",
+      "Pendampingan pemanfaatan Eco-Enzyme sebagai pupuk organik untuk tanaman pekarangan."
+    ],
+    bahan: [
+      "Sampah organik rumah tangga (kulit buah, sisa sayuran, dan bahan organik lainnya)",
+      "EM4",
+      "Molase"
+    ],
+    sasaran: "Sasaran utama program ini adalah masyarakat RT 3 RW 3 Kelurahan Jangli, khususnya warga yang memiliki tanaman di sekitar pekarangan rumah. Program ini diharapkan dapat meningkatkan kesadaran masyarakat dalam mengelola limbah organik sekaligus mendukung pemanfaatan pupuk organik secara berkelanjutan.",
+    tujuan: [
+      "Meningkatkan kesadaran masyarakat terhadap pengelolaan limbah organik.",
+      "Mengurangi jumlah limbah organik rumah tangga yang dibuang ke lingkungan.",
+      "Menghasilkan Eco-Enzyme sebagai produk bernilai guna dan ramah lingkungan.",
+      "Mendukung penghijauan dan pemeliharaan tanaman pekarangan warga.",
+      "Mendorong penerapan ekonomi sirkular berbasis masyarakat."
+    ]
+  },
+  {
+    id: 2,
+    title: "Judul Program Saintek 2",
+    summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Data dan dokumentasi akan diperbarui setelah program berjalan.",
+  },
+  {
+    id: 3,
+    title: "Judul Program Saintek 3",
+    summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Data dan dokumentasi akan diperbarui setelah program berjalan.",
+  }
+];
+
 
 /* ═══════════════════════════════════════════
    PAGE
    ═══════════════════════════════════════════ */
 
 export default function JangliPage() {
+  const [selectedSaintek, setSelectedSaintek] = useState<any>(null);
+
   return (
     <>
       <Navbar />
@@ -252,7 +304,11 @@ export default function JangliPage() {
                   >
                     {/* Top Inset Image Area */}
                     <div className={`w-full aspect-[4/3] rounded-[24px] bg-gradient-to-br ${bgGradient} flex items-center justify-center relative overflow-hidden`}>
-                      <User className="h-16 w-16 text-brand-charcoal/10 group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
+                      {(p as any).image ? (
+                        <Image src={(p as any).image} alt={p.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                      ) : (
+                        <User className="h-16 w-16 text-brand-charcoal/10 group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
+                      )}
                     </div>
 
                     {/* Content Area */}
@@ -279,7 +335,7 @@ export default function JangliPage() {
                           className="text-[12px] font-semibold text-brand-charcoal/50 hover:text-[#42B549] flex items-center gap-1.5 transition-colors group/link"
                         >
                           <svg viewBox="0 0 192 192" fill="none" className="h-[14px] w-[14px] opacity-60 group-hover/link:opacity-100">
-                            <path fill="currentColor" fillRule="evenodd" d="M96 28c-9.504 0-17.78 5.307-22.008 13.127C82.736 42.123 88.89 44 96 47.332c7.11-3.332 13.264-5.209 22.008-6.205C113.781 33.31 105.506 28 96 28Zm0-12c-15.973 0-29.568 10.117-34.754 24.28C52.932 40 42.462 40 28.53 40H28a6 6 0 0 0-6 6v124a6 6 0 0 0 6 6h92c27.614 0 50-22.386 50-50V46a6 6 0 0 0-6-6h-.531c-13.931 0-24.401 0-32.715.28C125.566 26.113 111.97 16 96 16ZM34 52.001V164h86c20.987 0 38-17.013 38-38V52.001c-18.502.009-29.622.098-37.872.966-8.692.915-13.999 2.677-21.445 6.4a6 6 0 0 1-5.366 0c-7.446-3.723-12.753-5.485-21.445-6.4-8.25-.868-19.37-.957-37.872-.966ZM50 96c0-9.941 8.059-18 18-18s18 8.059 18 18-8.059 18-18 18-18-8.059-18-18Zm18-30c-16.569 0-30 13.431-30 30 0 16.569 13.431 30 30 30 1.126 0 2.238-.062 3.332-.183l20.425 20.426a6 6 0 0 0 8.486 0l20.425-20.426c1.094.121 2.206.183 3.332.183 16.569 0 30-13.431 30-30 0-16.569-13.431-30-30-30-12.764 0-23.666 7.971-28 19.207C91.666 73.971 80.764 66 68 66Zm40.082 55.433A30.1 30.1 0 0 1 96 106.793a30.101 30.101 0 0 1-12.082 14.64L96 133.515l12.082-12.082ZM124 78c-9.941 0-18 8.059-18 18s8.059 18 18 18 18-8.059 18-18-8.059-18-18-18ZM76 96a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm48 8a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" clipRule="evenodd"/>
+                            <path fill="currentColor" fillRule="evenodd" d="M96 28c-9.504 0-17.78 5.307-22.008 13.127C82.736 42.123 88.89 44 96 47.332c7.11-3.332 13.264-5.209 22.008-6.205C113.781 33.31 105.506 28 96 28Zm0-12c-15.973 0-29.568 10.117-34.754 24.28C52.932 40 42.462 40 28.53 40H28a6 6 0 0 0-6 6v124a6 6 0 0 0 6 6h92c27.614 0 50-22.386 50-50V46a6 6 0 0 0-6-6h-.531c-13.931 0-24.401 0-32.715.28C125.566 26.113 111.97 16 96 16ZM34 52.001V164h86c20.987 0 38-17.013 38-38V52.001c-18.502.009-29.622.098-37.872.966-8.692.915-13.999 2.677-21.445 6.4a6 6 0 0 1-5.366 0c-7.446-3.723-12.753-5.485-21.445-6.4-8.25-.868-19.37-.957-37.872-.966ZM50 96c0-9.941 8.059-18 18-18s18 8.059 18 18-8.059 18-18 18-18-8.059-18-18Zm18-30c-16.569 0-30 13.431-30 30 0 16.569 13.431 30 30 30 1.126 0 2.238-.062 3.332-.183l20.425 20.426a6 6 0 0 0 8.486 0l20.425-20.426c1.094.121 2.206.183 3.332.183 16.569 0 30-13.431 30-30 0-16.569-13.431-30-30-30-12.764 0-23.666 7.971-28 19.207C91.666 73.971 80.764 66 68 66Zm40.082 55.433A30.1 30.1 0 0 1 96 106.793a30.101 30.101 0 0 1-12.082 14.64L96 133.515l12.082-12.082ZM124 78c-9.941 0-18 8.059-18 18s8.059 18 18 18 18-8.059 18-18-8.059-18-18-18ZM76 96a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm48 8a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" clipRule="evenodd" />
                           </svg>
                           Tokopedia
                         </a>
@@ -338,13 +394,20 @@ export default function JangliPage() {
                       </span>
                     </div>
 
-                    {/* Center Abstract Graphic / Icon */}
+                     {/* Center Abstract Graphic / Icon / Image */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="relative">
-                        {/* Glow behind icon */}
-                        <div className="absolute inset-0 bg-white/20 blur-3xl rounded-full scale-150" />
-                        <ShoppingBag className="h-16 w-16 text-white/30 group-hover:scale-110 group-hover:text-white/50 transition-all duration-700 relative z-10" strokeWidth={1} />
-                      </div>
+                      {(product as any).image ? (
+                        <>
+                           <Image src={(product as any).image} alt={product.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
+                        </>
+                      ) : (
+                        <div className="relative">
+                          {/* Glow behind icon */}
+                          <div className="absolute inset-0 bg-white/20 blur-3xl rounded-full scale-150" />
+                          <ShoppingBag className="h-16 w-16 text-white/30 group-hover:scale-110 group-hover:text-white/50 transition-all duration-700 relative z-10" strokeWidth={1} />
+                        </div>
+                      )}
                     </div>
 
                     {/* Bottom Content Area */}
@@ -382,23 +445,67 @@ export default function JangliPage() {
                 Program Saintek
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((item) => (
-                <div key={item} className="bg-brand-cream rounded-3xl p-8 border border-brand-charcoal/5 hover:border-brand-charcoal/20 transition-all duration-300">
-                  <div className="h-12 w-12 rounded-full bg-brand-green-dark/10 flex items-center justify-center mb-6">
-                    <Beaker className="h-5 w-5 text-brand-green-dark" />
+            {/* Featured Project Showcase */}
+            <div className="relative bg-brand-cream rounded-[40px] overflow-hidden p-8 md:p-12 lg:p-16 border border-brand-charcoal/5 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+              {/* Graphic/Visual Side */}
+              <div className="w-full lg:w-5/12 flex justify-center relative">
+                <div className="w-full max-w-[320px] aspect-square bg-[#5B9E31]/10 rounded-full flex items-center justify-center relative">
+                  {/* Glowing effect */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(91,158,49,0.15)_0%,transparent_70%)] blur-2xl" />
+                  <Beaker className="h-28 w-28 text-brand-green-dark relative z-10" strokeWidth={1} />
+
+                  {/* Floating badge */}
+                  <div className="absolute top-8 right-0 bg-white px-5 py-2.5 rounded-full shadow-xl shadow-brand-charcoal/5 rotate-6 flex items-center gap-2">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
+                    </span>
+                    <span className="text-[11px] font-bold tracking-widest uppercase text-brand-charcoal">Segera Hadir</span>
                   </div>
-                  <h3 className="text-xl font-medium text-brand-charcoal mb-3">Judul Program Saintek {item}</h3>
-                  <p className="text-sm text-brand-charcoal/60 leading-relaxed mb-6">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Data dan dokumentasi akan diperbarui
-                    setelah program berjalan.
-                  </p>
-                  <a href="#" className="text-sm font-semibold text-brand-green-dark flex items-center gap-2 group/link">
-                    Detail Program <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                  </a>
                 </div>
-              ))}
+              </div>
+
+              {/* Content Side */}
+              <div className="w-full lg:w-7/12">
+                <div className="inline-block px-4 py-1.5 rounded-full bg-brand-green-dark/10 text-brand-green-dark text-[11px] font-bold tracking-widest uppercase mb-6">
+                  Inisiatif Lingkungan & Ekonomi Sirkular
+                </div>
+                <h3 className="text-3xl md:text-4xl lg:text-[42px] font-medium text-brand-charcoal mb-6 leading-[1.15] tracking-tight">
+                  Mengubah Limbah Menjadi Berkah: Inovasi Eco-Enzyme Jangli
+                </h3>
+                <p className="text-base sm:text-lg text-brand-charcoal/70 leading-relaxed mb-10">
+                  Menjawab tantangan pengelolaan sampah organik di RT 3 RW 3 Kelurahan Jangli, tim KKN Setanjang akan segera meluncurkan program pemanfaatan limbah rumah tangga. Bersama warga, kami menyulap sisa sayuran dan kulit buah menjadi <strong className="font-semibold text-brand-charcoal">Eco-Enzyme</strong> — solusi pupuk organik ramah lingkungan untuk menyuburkan pekarangan sekaligus menekan volume sampah di TPA.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8 mb-10">
+                  <div>
+                    <h4 className="font-bold text-brand-charcoal mb-2 flex items-center gap-2">
+                      <Users className="h-5 w-5 text-brand-green-dark" />
+                      Pemberdayaan Warga
+                    </h4>
+                    <p className="text-sm text-brand-charcoal/60 leading-relaxed">
+                      Pendampingan langsung praktik pengolahan limbah mandiri bersama ibu-ibu PKK dan warga setempat.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-brand-charcoal mb-2 flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-brand-green-dark" />
+                      Ekonomi Sirkular
+                    </h4>
+                    <p className="text-sm text-brand-charcoal/60 leading-relaxed">
+                      Menciptakan produk pupuk cair substitusi bernilai guna dari limbah yang seharusnya terbuang.
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setSelectedSaintek(md2SaintekData[0])}
+                  className="px-8 py-4 rounded-full bg-brand-charcoal text-sm font-semibold text-white hover:bg-brand-green-dark transition-colors duration-300 flex items-center gap-2"
+                >
+                  Lihat Detail Proposal
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
             </div>
           </div>
         </section>
@@ -486,6 +593,138 @@ export default function JangliPage() {
         </section>
 
       </main>
+
+      {/* ────────────────────────────────────
+          MODAL DETAIL SAINTEK
+      ──────────────────────────────────── */}
+      {selectedSaintek && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
+            onClick={() => setSelectedSaintek(null)}
+          />
+
+          {/* Modal Content */}
+          <div className="relative bg-[#FDFCF8] rounded-[32px] w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 sm:p-12 shadow-2xl animate-in fade-in zoom-in-95 duration-300">
+            <button
+              onClick={() => setSelectedSaintek(null)}
+              className="absolute top-6 right-6 p-3 bg-brand-charcoal/5 rounded-full hover:bg-brand-charcoal/10 transition-colors"
+            >
+              <X className="h-5 w-5 text-brand-charcoal" />
+            </button>
+
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-green-dark mb-4 block">
+              Program Saintek
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-medium text-brand-charcoal mb-10 pr-12 leading-tight">
+              {selectedSaintek.title}
+            </h2>
+
+            <div className="space-y-10">
+              {/* If no detailed data exists yet (placeholder items) */}
+              {!selectedSaintek.usulan && (
+                <div className="p-8 bg-brand-cream rounded-2xl border border-brand-charcoal/10 text-center">
+                  <p className="text-brand-charcoal/60">Detail program belum tersedia. Akan diperbarui kemudian.</p>
+                </div>
+              )}
+
+              {/* Detailed Sections */}
+              {selectedSaintek.lokasi && (
+                <div className="flex items-start gap-4 p-5 bg-brand-cream rounded-2xl">
+                  <MapPin className="h-6 w-6 text-brand-green-dark shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-brand-charcoal">Lokasi Kegiatan</h3>
+                    <p className="text-sm text-brand-charcoal/70 mt-1">{selectedSaintek.lokasi}</p>
+                  </div>
+                </div>
+              )}
+
+              {selectedSaintek.usulan && (
+                <div>
+                  <h3 className="text-xl font-medium text-brand-charcoal mb-3">Usulan Program</h3>
+                  <p className="text-brand-charcoal/70 leading-relaxed">{selectedSaintek.usulan}</p>
+                </div>
+              )}
+
+              {selectedSaintek.potensi && (
+                <div>
+                  <h3 className="text-xl font-medium text-brand-charcoal mb-3">Potensi</h3>
+                  <p className="text-brand-charcoal/70 leading-relaxed">{selectedSaintek.potensi}</p>
+                </div>
+              )}
+
+              {selectedSaintek.permasalahan && (
+                <div>
+                  <h3 className="text-xl font-medium text-brand-charcoal mb-3">Permasalahan</h3>
+                  <p className="text-brand-charcoal/70 leading-relaxed">{selectedSaintek.permasalahan}</p>
+                </div>
+              )}
+
+              {selectedSaintek.metode && selectedSaintek.metode.length > 0 && (
+                <div>
+                  <h3 className="text-xl font-medium text-brand-charcoal mb-4">Metode Pelaksanaan</h3>
+                  <ul className="space-y-3">
+                    {selectedSaintek.metode.map((step: string, i: number) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-brand-green-dark/10 text-brand-green-dark text-xs font-bold mt-0.5">
+                          {i + 1}
+                        </span>
+                        <span className="text-brand-charcoal/70 leading-relaxed">{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {selectedSaintek.bahan && selectedSaintek.bahan.length > 0 && (
+                <div>
+                  <h3 className="text-xl font-medium text-brand-charcoal mb-3">Bahan yang digunakan</h3>
+                  <ul className="list-disc list-inside space-y-1 text-brand-charcoal/70 leading-relaxed">
+                    {selectedSaintek.bahan.map((item: string, i: number) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {selectedSaintek.sasaran && (
+                <div>
+                  <h3 className="text-xl font-medium text-brand-charcoal mb-3">Kelompok Sasaran</h3>
+                  <p className="text-brand-charcoal/70 leading-relaxed">{selectedSaintek.sasaran}</p>
+                </div>
+              )}
+
+              {selectedSaintek.tujuan && selectedSaintek.tujuan.length > 0 && (
+                <div>
+                  <h3 className="text-xl font-medium text-brand-charcoal mb-4">Tujuan Program</h3>
+                  <ul className="space-y-3">
+                    {selectedSaintek.tujuan.map((tuj: string, i: number) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-green-dark mt-2.5 shrink-0" />
+                        <span className="text-brand-charcoal/70 leading-relaxed">{tuj}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {selectedSaintek.narasumber && selectedSaintek.narasumber.length > 0 && (
+                <div className="pt-6 border-t border-brand-charcoal/10">
+                  <h3 className="text-lg font-medium text-brand-charcoal mb-3">Narasumber / Mitra</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedSaintek.narasumber.map((n: string, i: number) => (
+                      <span key={i} className="px-4 py-2 bg-brand-charcoal/5 rounded-lg text-sm text-brand-charcoal/80 font-medium">
+                        {n}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </>
