@@ -42,13 +42,14 @@ export default function Navbar() {
         { label: "Soshum", href: "#md2-soshum" },
         { label: "Sosmas", href: "#sosmas" },
       ];
-    } else if (pathname === "/tandang") {
+    } else if (pathname.startsWith("/tandang")) {
       return [
         { label: "Home", href: "/" },
-        { label: "Profil", href: "#profil-tandang" },
-        { label: "Saintek", href: "#md2-saintek" },
-        { label: "Soshum", href: "#md2-soshum" },
-        { label: "Sosmas", href: "#sosmas" },
+        { label: "Profil & UMKM", href: "/tandang#profil-tandang" },
+        { label: "Katalog", href: "/tandang#katalog" },
+        { label: "Saintek", href: "/tandang/saintek" },
+        { label: "Soshum", href: "/tandang/soshum" },
+        { label: "Sosmas", href: "/tandang/sosmas" },
       ];
     } else if (pathname === "/kkn") {
       return [
