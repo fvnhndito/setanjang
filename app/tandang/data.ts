@@ -69,7 +69,7 @@ export const pengrajin: PengrajinItem[] = [
   },
   {
     id: 3,
-    name: "Pak Waginah Ibu Pujiman",
+    name: "Pak Waginah & Ibu Pujiman",
     role: "Pengrajin Tali Lashing — RW 10 (RT 04)",
     desc: "Terlibat dalam proses pembuatan tas anyaman berbahan limbah tali lashing bersama kelompok pengrajin di RW 10.",
     products: ["Tas Anyam Lashing"],
@@ -95,20 +95,10 @@ export const pengrajin: PengrajinItem[] = [
     products: ["Tas Anyam Lashing"],
     phone: "0812-xxxx-0006",
     shopee: "https://shopee.co.id",
-    image: "/placeholder-pengrajin.png",
+    image: "/utami.jpg",
   },
   {
     id: 6,
-    name: "Ibu Indarwati",
-    role: "Penasehat Bank Sampah & Kriya — RW 03",
-    desc: "Mendampingi kegiatan Bank Sampah dan mendukung pengembangan kerajinan berbahan limbah bersama masyarakat.",
-    products: ["Pendampingan Bank Sampah"],
-    phone: "0857-xxxx-0007",
-    shopee: "https://shopee.co.id",
-    image: "/placeholder-pengrajin.png",
-  },
-  {
-    id: 7,
     name: "Pak Ruspartono",
     role: "Ketua RW & Penggerak Lingkungan — RW 03",
     desc: "Mendukung pelaksanaan program Bank Sampah dan pemberdayaan masyarakat melalui pengelolaan limbah di lingkungan RW 03.",
@@ -130,7 +120,7 @@ export const katalogProduk: KatalogItem[] = [
     category: "Tas & Aksesoris",
     desc: "Tas serbaguna berbahan limbah tali plastik industri Polytron dengan kerapatan tinggi, sangat kuat menahan beban belanja dan modis.",
     color: "bg-[#5B9E31]/8",
-    image: "/lashing_craft_bags.png",
+    image: "",
   },
   {
     id: 2,
@@ -138,7 +128,7 @@ export const katalogProduk: KatalogItem[] = [
     category: "Dekorasi Rumah",
     desc: "Pot gantung tahan cuaca untuk tanaman hias berdaya tahan tinggi terhadap paparan sinar matahari, mempercantik teras dan taman rumah.",
     color: "bg-brand-charcoal/5",
-    image: "/lashing_home_decor.png",
+    image: "/",
   },
   {
     id: 3,
@@ -146,7 +136,7 @@ export const katalogProduk: KatalogItem[] = [
     category: "Penyimpanan",
     desc: "Wadah penyimpanan serbaguna berstruktur rangka kokoh dengan penutup rapat anti-debu untuk merapikan pakaian, mainan, atau dokumen.",
     color: "bg-[#2E5A44]/8",
-    image: "/lashing_craft_bags.png",
+    image: "",
   },
   {
     id: 4,
@@ -154,7 +144,7 @@ export const katalogProduk: KatalogItem[] = [
     category: "Meja Makan",
     desc: "Pelindung hidangan higienis dengan teknik anyaman silang presisi, menjaga kebersihan makanan dengan sirkulasi udara yang optimal.",
     color: "bg-orange-900/5",
-    image: "/lashing_home_decor.png",
+    image: "",
   },
   {
     id: 5,
@@ -162,7 +152,7 @@ export const katalogProduk: KatalogItem[] = [
     category: "Meja Makan",
     desc: "Table runner panjang bermotif kontemporer yang memberikan aksen mewah pada jamuan makan, tahan tumpahan air dan mudah dibersihkan.",
     color: "bg-[#2E5A44]/8",
-    image: "/lashing_home_decor.png",
+    image: "",
   },
   {
     id: 6,
@@ -170,7 +160,7 @@ export const katalogProduk: KatalogItem[] = [
     category: "Perabot Rumah",
     desc: "Wadah tisu rapi dari limbah tali lashing yang tahan lama dan memiliki kombinasi warna berkelas untuk menghiasi meja tamu Anda.",
     color: "bg-brand-charcoal/5",
-    image: "/lashing_craft_bags.png",
+    image: "",
   },
 ];
 
