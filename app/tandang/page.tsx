@@ -12,6 +12,12 @@ import {
 import { SiShopee, SiWhatsapp } from "react-icons/si";
 import { stats, pengrajin, katalogProduk } from "./data";
 
+const isValidImage = (url?: string) => {
+  if (!url || url === "/" || url.trim() === "") return false;
+  if (url.includes("placeholder")) return false;
+  return true;
+};
+
 export default function TandangPage() {
   return (
     <>
@@ -28,7 +34,7 @@ export default function TandangPage() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center gap-8">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium text-white leading-[1.12] tracking-tight">
-              Sentra Kriya Anyaman,
+              Eksplorasi Potensi,
               <br />
               Kelurahan Tandang
             </h1>
@@ -116,7 +122,7 @@ export default function TandangPage() {
                   "from-purple-50 to-purple-100",
                 ];
                 const bgGradient = gradients[idx % gradients.length];
-                const hasCustomPhoto = p.image && !p.image.includes("placeholder");
+                const hasCustomPhoto = isValidImage(p.image);
 
                 return (
                   <div
@@ -194,7 +200,7 @@ export default function TandangPage() {
                   "from-white/10 via-black to-black",
                 ];
                 const bgGradient = gradients[idx % gradients.length];
-                const hasRealPhoto = product.image && !product.image.includes("placeholder");
+                const hasRealPhoto = isValidImage(product.image);
 
                 return (
                   <div

@@ -39,7 +39,7 @@ export const stats: StatItem[] = [
   { value: "3,76 km²", label: "Luas Wilayah" },
   { value: "24.997", label: "Jiwa Penduduk" },
   { value: "14 RW", label: "Total Rukun Warga" },
-  { value: "Sentra Kriya Tali Anyaman", label: "Potensi Utama" },
+  { value: "UMKM Tali Anyaman", label: "Potensi Utama" },
 ];
 
 /* ═══════════════════════════════════════════
@@ -116,27 +116,27 @@ export const pengrajin: PengrajinItem[] = [
 export const katalogProduk: KatalogItem[] = [
   {
     id: 1,
-    name: "Tas Anyaman Lashing",
+    name: "Tas Anyaman",
     category: "Tas & Aksesoris",
     desc: "Tas serbaguna berbahan limbah tali plastik industri Polytron dengan kerapatan tinggi, sangat kuat menahan beban belanja dan modis.",
     color: "bg-[#5B9E31]/8",
-    image: "",
+    image: "/tas.png",
   },
   {
     id: 2,
-    name: "Pot Gantung Anyam",
+    name: "Pot Bunga",
     category: "Dekorasi Rumah",
     desc: "Pot gantung tahan cuaca untuk tanaman hias berdaya tahan tinggi terhadap paparan sinar matahari, mempercantik teras dan taman rumah.",
     color: "bg-brand-charcoal/5",
-    image: "/",
+    image: "/pot.png",
   },
   {
     id: 3,
-    name: "Storage Box Geometris",
+    name: "Storage Box",
     category: "Penyimpanan",
     desc: "Wadah penyimpanan serbaguna berstruktur rangka kokoh dengan penutup rapat anti-debu untuk merapikan pakaian, mainan, atau dokumen.",
     color: "bg-[#2E5A44]/8",
-    image: "",
+    image: "/storage-box.png",
   },
   {
     id: 4,
@@ -144,23 +144,23 @@ export const katalogProduk: KatalogItem[] = [
     category: "Meja Makan",
     desc: "Pelindung hidangan higienis dengan teknik anyaman silang presisi, menjaga kebersihan makanan dengan sirkulasi udara yang optimal.",
     color: "bg-orange-900/5",
-    image: "",
+    image: "/tudung-saji.png",
   },
   {
     id: 5,
-    name: "Taplak Meja Kontemporer",
+    name: "Alas Meja",
     category: "Meja Makan",
     desc: "Table runner panjang bermotif kontemporer yang memberikan aksen mewah pada jamuan makan, tahan tumpahan air dan mudah dibersihkan.",
     color: "bg-[#2E5A44]/8",
-    image: "",
+    image: "/alas.png",
   },
   {
     id: 6,
-    name: "Tempat Tissue Anyam",
+    name: "Tempat Tissue",
     category: "Perabot Rumah",
     desc: "Wadah tisu rapi dari limbah tali lashing yang tahan lama dan memiliki kombinasi warna berkelas untuk menghiasi meja tamu Anda.",
     color: "bg-brand-charcoal/5",
-    image: "",
+    image: "/tempat-tisu.png",
   },
 ];
 
