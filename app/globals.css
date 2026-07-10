@@ -37,3 +37,24 @@ body {
   background-color: #2E5A44;
   color: #F5F4F0;
 }
+
+/* ── Jangli Map Animations ── */
+@keyframes map-ping {
+  0% {
+    r: 4;
+    opacity: 0.6;
+  }
+  70% {
+    r: 18;
+    opacity: 0;
+  }
+  100% {
+    r: 18;
+    opacity: 0;
+  }
+}
+
+.animate-map-ping {
+  animation: map-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+

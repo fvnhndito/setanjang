@@ -18,21 +18,46 @@ const TiktokIcon = () => (
   </svg>
 );
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Programs", href: "#kelurahan" },
-  { label: "Wilayah", href: "#wilayah" },
-];
+import { usePathname } from "next/navigation";
 
 const socialLinks = [
-  { icon: <InstagramIcon />, href: "#", label: "Instagram" },
+  { icon: <InstagramIcon />, href: "https://www.instagram.com/se.tanjang?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
   { icon: <TiktokIcon />, href: "#", label: "TikTok" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+
+  // Dynamic navigation links based on current page
+  const navLinks = (() => {
+    if (pathname === "/jangli") {
+      return [
+        { label: "Home", href: "/" },
+        { label: "Profil", href: "#profil-jangli" },
+        { label: "Pengrajin", href: "#pengrajin" },
+        { label: "Saintek", href: "#md2-saintek" },
+        { label: "Soshum", href: "#md2-soshum" },
+        { label: "Sosmas", href: "#sosmas" },
+      ];
+    } else if (pathname === "/tandang") {
+      return [
+        { label: "Home", href: "/" },
+        { label: "Profil", href: "#profil-tandang" },
+        { label: "Saintek", href: "#md2-saintek" },
+        { label: "Soshum", href: "#md2-soshum" },
+        { label: "Sosmas", href: "#sosmas" },
+      ];
+    }
+    // Default Home Links
+    return [
+      { label: "About", href: "#about" },
+      { label: "UMKM", href: "#umkm" },
+      { label: "Wilayah", href: "#wilayah" },
+    ];
+  })();
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -127,6 +152,8 @@ export default function Navbar() {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.label}
                 style={{ color: iconColor, backgroundColor: iconBg }}
                 className="h-9 w-9 rounded-full flex items-center justify-center transition-all duration-300"
@@ -190,6 +217,8 @@ export default function Navbar() {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.label}
                 style={{
                   color: scrolled ? "rgba(28,30,33,0.6)" : "rgba(255,255,255,0.7)",

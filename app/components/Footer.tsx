@@ -47,7 +47,7 @@ export default function Footer() {
           {/* Kelurahan */}
           <div className="md:col-span-3 space-y-4">
             <h4 className="text-sm font-semibold text-brand-green-dark">
-              Kelurahan
+              Wilayah
             </h4>
             <div className="flex flex-col gap-3">
               <a href="/tandang" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
@@ -73,7 +73,12 @@ export default function Footer() {
                 <TwitterIcon />
                 Twitter
               </a>
-              <a href="#" className="flex items-center gap-2.5 text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+              <a 
+                href="https://www.instagram.com/se.tanjang?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2.5 text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors"
+              >
                 <InstagramIcon />
                 Instagram
               </a>
