@@ -29,7 +29,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center gap-8 pt-10">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-medium text-white leading-[1.2] tracking-tight font-serif max-w-4xl">
-          Gerakan Pemberdayaan Ekonomi Kreatif Berkelanjutan Berbasis Daur Ulang Limbah Tali Plastik Industri
+          Pemberdayaan Ekonomi Kreatif Berkelanjutan Berbasis Daur Ulang Limbah Tali Plastik Industri
         </h1>
 
         <p className="text-base sm:text-lg text-white/85 max-w-3xl leading-relaxed font-sans">

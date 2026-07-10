@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
 @font-face {
     font-family: 'Google Sans';
     font-style: normal;
@@ -6,10 +10,6 @@
     src: url('https://fonts.gstatic.com/s/googlesans/v69/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPiIUvaYr.woff2') format('woff2');
     unicode-range: U+0308, U+0530-058F, U+2010, U+2024, U+25CC, U+FB13-FB17, U+0000-00FF;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-@import "tailwindcss";
 
 :root {
   --background: #F5F4F0;

@@ -12,14 +12,14 @@ const InstagramIcon = () => (
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-cream border-t border-brand-charcoal/8">
+    <footer className="bg-brand-green-dark dark:bg-[#193226] text-white/90 border-t border-brand-green-dark/10 transition-colors duration-300">
       {/* Main Footer */}
       <div className="w-full px-5 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-4 space-y-4">
-            <Logo size="md" />
-            <p className="text-sm text-brand-charcoal/50 leading-relaxed max-w-xs">
+            <Logo size="md" variant="light" />
+            <p className="text-sm text-brand-cream/65 leading-relaxed max-w-xs">
               Sinergi mahasiswa KKN Universitas bersama warga Kelurahan Jangli dan Tandang
               dalam mewujudkan transformasi digital, kelestarian lingkungan, dan
               kemandirian ekonomi masyarakat.
@@ -28,17 +28,17 @@ export default function Footer() {
 
           {/* Navigasi */}
           <div className="md:col-span-2 space-y-4">
-            <h4 className="text-sm font-semibold text-brand-green-dark">
+            <h4 className="text-sm font-semibold text-brand-green-light">
               Navigasi
             </h4>
             <div className="flex flex-col gap-3">
-              <a href="/" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+              <a href="/" className="text-sm text-brand-cream/60 hover:text-white transition-colors">
                 Home
               </a>
-              <a href="/#lashing" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+              <a href="/#lashing" className="text-sm text-brand-cream/60 hover:text-white transition-colors">
                 Tali Lashing
               </a>
-              <a href="/kkn" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+              <a href="/kkn" className="text-sm text-brand-cream/60 hover:text-white transition-colors">
                 Tim KKN
               </a>
             </div>
@@ -46,14 +46,14 @@ export default function Footer() {
 
           {/* Kelurahan */}
           <div className="md:col-span-3 space-y-4">
-            <h4 className="text-sm font-semibold text-brand-green-dark">
+            <h4 className="text-sm font-semibold text-brand-green-light">
               Wilayah
             </h4>
             <div className="flex flex-col gap-3">
-              <a href="/tandang" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+              <a href="/tandang" className="text-sm text-brand-cream/60 hover:text-white transition-colors">
                 Kelurahan Tandang
               </a>
-              <a href="/jangli" className="text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+              <a href="/jangli" className="text-sm text-brand-cream/60 hover:text-white transition-colors">
                 Kelurahan Jangli
               </a>
             </div>
@@ -61,15 +61,15 @@ export default function Footer() {
 
           {/* Follow Us */}
           <div className="md:col-span-3 space-y-4">
-            <h4 className="text-sm font-semibold text-brand-green-dark">
+            <h4 className="text-sm font-semibold text-brand-green-light">
               Follow Us
             </h4>
             <div className="flex flex-col gap-3">
-              <a href="#" className="flex items-center gap-2.5 text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+              <a href="#" className="flex items-center gap-2.5 text-sm text-brand-cream/60 hover:text-white transition-colors">
                 <FacebookIcon />
                 Facebook
               </a>
-              <a href="#" className="flex items-center gap-2.5 text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors">
+              <a href="#" className="flex items-center gap-2.5 text-sm text-brand-cream/60 hover:text-white transition-colors">
                 <TwitterIcon />
                 Twitter
               </a>
@@ -77,7 +77,7 @@ export default function Footer() {
                 href="https://www.instagram.com/se.tanjang?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-2.5 text-sm text-brand-charcoal/50 hover:text-brand-charcoal transition-colors"
+                className="flex items-center gap-2.5 text-sm text-brand-cream/60 hover:text-white transition-colors"
               >
                 <InstagramIcon />
                 Instagram
@@ -88,14 +88,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-brand-charcoal/8 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-[1440px] mx-auto py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-brand-charcoal/40">
+      <div className="border-t border-white/10 px-5 sm:px-6 lg:px-8">
+        <div className="max-w-[1440px] mx-auto py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-brand-cream/40">
           <p>Copyright © {new Date().getFullYear()} KKNT IDBU 70</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-brand-charcoal transition-colors">
+            <a href="#" className="hover:text-white transition-colors">
               Terms & Conditions
             </a>
-            <a href="#" className="hover:text-brand-charcoal transition-colors">
+            <a href="#" className="hover:text-white transition-colors">
               Privacy Policy
             </a>
           </div>
