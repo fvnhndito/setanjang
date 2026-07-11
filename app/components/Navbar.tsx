@@ -43,11 +43,9 @@ export default function Navbar() {
     } else if (pathname.startsWith("/tandang")) {
       return [
         { label: "Home", href: "/" },
-        { label: "Profil & UMKM", href: "/tandang#profil-tandang" },
-        { label: "Katalog", href: "/tandang#katalog" },
-        { label: "Saintek", href: "/tandang/saintek" },
-        { label: "Soshum", href: "/tandang/soshum" },
-        { label: "Sosmas", href: "/tandang/sosmas" },
+        { label: "Profil Kelurahan", href: "#profil-tandang" },
+        { label: "Pengrajin & UMKM", href: "#pengrajin" },
+        { label: "Katalog", href: "#katalog" },
       ];
     } else if (pathname === "/kkn") {
       return [
@@ -93,10 +91,10 @@ export default function Navbar() {
     href: string
   ) => {
     setIsOpen(false);
-    if (href.startsWith("#") && pathname === "/") {
-      e.preventDefault();
+    if (href.startsWith("#")) {
       const el = document.getElementById(href.replace("#", ""));
       if (el) {
+        e.preventDefault();
         window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
       }
     } else if (href.startsWith("/#") && pathname === "/") {

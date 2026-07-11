@@ -29,8 +29,8 @@ export default function TandangPage() {
             HERO SECTION TANDANG
         ──────────────────────────────────── */}
         <section className="relative min-h-screen flex items-center justify-center pt-20">
-          <div className="absolute inset-0 bg-brand-charcoal" />
-          <div className="absolute inset-0 bg-black/40" />
+          <Image src="/image-home-tandang.jpg" alt="Tandang Hero" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-black/50" />
 
           <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center gap-8">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium text-white leading-[1.12] tracking-tight">
@@ -207,25 +207,29 @@ export default function TandangPage() {
                     key={product.id}
                     className={`relative rounded-[32px] overflow-hidden bg-gradient-to-b ${bgGradient} flex flex-col h-[480px] p-8 group duration-500 shadow-xl shadow-brand-charcoal/5`}
                   >
-                    {hasRealPhoto && (
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover opacity-25 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-                      />
-                    )}
-
                     <div className="flex flex-wrap items-start gap-2 z-10">
                       <span className="px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-medium text-white/90 backdrop-blur-sm">
                         {product.category}
                       </span>
                     </div>
+
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-white/20 blur-3xl rounded-full scale-150" />
-                        <ShoppingBag className="h-16 w-16 text-white/40 group-hover:scale-110 group-hover:text-white/70 transition-all duration-700 relative z-10" strokeWidth={1} />
-                      </div>
+                      {hasRealPhoto ? (
+                        <>
+                          <Image
+                            src={product.image}
+                            alt={product.name}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent pointer-events-none" />
+                        </>
+                      ) : (
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-white/20 blur-3xl rounded-full scale-150" />
+                          <ShoppingBag className="h-16 w-16 text-white/40 group-hover:scale-110 group-hover:text-white/70 transition-all duration-700 relative z-10" strokeWidth={1} />
+                        </div>
+                      )}
                     </div>
 
                     <div className="mt-auto relative z-10 flex flex-col items-start w-full">
