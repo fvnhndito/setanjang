@@ -185,7 +185,7 @@ export default function TeamSection() {
   };
 
   return (
-    <section id="about" className="px-5 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-10 md:pb-12 bg-white">
+    <section id="about" className="px-5 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-0 bg-white">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Header Section */}
@@ -307,7 +307,7 @@ export default function TeamSection() {
         <hr className="border-brand-charcoal/10 max-w-4xl mx-auto my-4" />
 
         {/* ── SUB-TIM KELURAHAN (TABBED SECTION) ── */}
-        <div className="relative w-full min-h-[700px] overflow-hidden flex flex-col justify-between pb-16 md:pb-24 px-4 md:px-8 select-none">
+        <div className="relative w-full min-h-[700px] overflow-hidden flex flex-col justify-between pb-0 px-4 md:px-8 select-none">
 
           {/* Title of current division */}
           <div className="relative z-10 text-center max-w-3xl mx-auto">
@@ -381,8 +381,8 @@ export default function TeamSection() {
                   key={i}
                   onClick={() => handleDivisionClick(i)}
                   className={`px-5 py-2 rounded-full font-sans text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${activeDivisionIndex === i
-                    ? "bg-brand-charcoal text-white shadow-sm scale-105"
-                    : "bg-white text-brand-charcoal/70 border border-brand-charcoal/5 hover:bg-white/80 hover:scale-105"
+                    ? "bg-brand-charcoal text-white shadow-md scale-105"
+                    : "bg-[#F5F4F0] text-brand-charcoal hover:bg-[#EAE9E5] hover:shadow-sm"
                     }`}
                 >
                   {div.name}
@@ -401,9 +401,9 @@ export default function TeamSection() {
                   <button
                     key={tab.id}
                     onClick={() => handleTabChange(tab.id as "tandang" | "jangli")}
-                    className={`px-5 py-2.5 rounded-full font-sans text-sm font-semibold transition-all duration-300 ${isActive
+                    className={`px-6 py-3 rounded-full font-sans text-sm font-semibold transition-all duration-300 ${isActive
                       ? "bg-brand-charcoal text-white shadow-md scale-105"
-                      : "bg-white/80 text-brand-charcoal hover:bg-white border border-black/5 hover:border-black/10 hover:shadow-sm"
+                      : "bg-[#F5F4F0] text-brand-charcoal hover:bg-[#EAE9E5] hover:shadow-sm"
                       }`}
                   >
                     {tab.name}

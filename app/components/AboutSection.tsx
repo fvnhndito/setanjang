@@ -25,7 +25,8 @@ const pillars = [
 
 export default function AboutSection() {
   return (
-    <section id="pillars" className="px-5 sm:px-6 lg:px-8 pt-10 md:pt-16 pb-20 md:pb-28 bg-white border-t border-brand-charcoal/5">
+    <section id="pillars" className="px-5 sm:px-6 lg:px-8 pb-0 bg-white">
+      <hr className="border-brand-charcoal/10 max-w-4xl mx-auto my-16 md:my-24" />
       <div className="max-w-[1440px] mx-auto">
         {/* Centered Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
