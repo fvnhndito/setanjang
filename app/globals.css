@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'Google Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url('https://fonts.gstatic.com/s/googlesans/v69/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPiIUvaYr.woff2') format('woff2');
-    unicode-range: U+0308, U+0530-058F, U+2010, U+2024, U+25CC, U+FB13-FB17, U+0000-00FF;
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('https://fonts.gstatic.com/s/googlesans/v69/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPiIUvaYr.woff2') format('woff2');
+  unicode-range: U+0308, U+0530-058F, U+2010, U+2024, U+25CC, U+FB13-FB17, U+0000-00FF;
 }
 
 :root {
@@ -52,10 +52,12 @@ body {
     r: 4;
     opacity: 0.6;
   }
+
   70% {
     r: 18;
     opacity: 0;
   }
+
   100% {
     r: 18;
     opacity: 0;

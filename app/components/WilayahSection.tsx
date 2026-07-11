@@ -1,5 +1,6 @@
 import { ArrowRight, MapPin } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const wilayahData = [
   {
@@ -7,16 +8,14 @@ const wilayahData = [
     name: "Kelurahan Tandang",
     description: "Pusat inovasi agroekologi dan pemberdayaan ekonomi kreatif warga. Kami berfokus pada pelatihan UMKM dan edukasi pertanian organik terpadu.",
     href: "/tandang",
-    color: "bg-brand-cream",
-    textColor: "text-brand-charcoal",
+    image: "/image-home.svg", // Placeholder image
   },
   {
     id: "jangli",
     name: "Kelurahan Jangli",
     description: "Kawasan strategis dengan fokus pada literasi digital, perbaikan sanitasi lingkungan, dan pengembangan pojok baca untuk anak-anak.",
     href: "/jangli",
-    color: "bg-[#EAE8E2]", // Slightly darker cream for contrast
-    textColor: "text-brand-charcoal",
+    image: "/image-home.svg", // Placeholder image
   },
 ];
 
@@ -40,32 +39,46 @@ export default function WilayahSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-auto lg:h-[600px]">
           {wilayahData.map((wilayah) => (
             <div
               key={wilayah.id}
-              className={`${wilayah.color} rounded-3xl p-8 sm:p-12 transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between min-h-[380px] group`}
+              className="relative rounded-[32px] overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 h-[450px] lg:h-full"
             >
-              <div>
-                <div className="h-12 w-12 rounded-full bg-white/60 flex items-center justify-center mb-8">
-                  <MapPin className="h-5 w-5 text-brand-green-dark" />
-                </div>
-                <h3 className={`text-3xl font-medium ${wilayah.textColor} mb-4`}>
-                  {wilayah.name}
-                </h3>
-                <p className={`text-base leading-relaxed ${wilayah.textColor} opacity-70 max-w-lg`}>
-                  {wilayah.description}
-                </p>
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-[#F5F4F0]">
+                <Image
+                  src={wilayah.image}
+                  alt={wilayah.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
 
-              <div className="mt-12">
-                <Link
-                  href={wilayah.href}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-sm font-semibold text-brand-charcoal hover:bg-brand-charcoal hover:text-white transition-all duration-300 shadow-sm"
-                >
-                  Lihat Selengkapnya
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-8 sm:p-12 z-10 transition-colors duration-500">
+                <div className="transform translate-y-0 lg:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-6 sm:mb-8 border border-white/20">
+                    <MapPin className="h-5 w-5 text-white" />
+                  </div>
+                  
+                  <h3 className="text-3xl sm:text-4xl font-serif text-white mb-3 drop-shadow-md">
+                    {wilayah.name}
+                  </h3>
+                  
+                  <p className="text-sm sm:text-base leading-relaxed text-white/80 max-w-lg mb-8 drop-shadow-sm line-clamp-3">
+                    {wilayah.description}
+                  </p>
+
+                  <Link
+                    href={wilayah.href}
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-sm font-bold text-brand-charcoal hover:bg-[#F5F4F0] hover:scale-105 transition-all duration-300 shadow-lg"
+                  >
+                    Eksplorasi Wilayah
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
