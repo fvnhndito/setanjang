@@ -49,7 +49,6 @@ export default function Navbar() {
       ];
     } else if (pathname === "/kkn") {
       return [
-        { label: "Home", href: "/" },
         { label: "Tali Lashing", href: "/#lashing" },
         { label: "Tim KKN", href: "/kkn" },
       ];
