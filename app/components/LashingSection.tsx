@@ -153,7 +153,7 @@ export default function LashingSection() {
               {/* Background Image */}
               <div className="absolute inset-0 bg-[#EAE8E2]">
                 <Image
-                  src="/image-home.svg"
+                  src="/Foto Team/Jangli/Foto-Jangli-BuAnnisa-1.jpg"
                   alt="Kelurahan Jangli"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -192,7 +192,7 @@ export default function LashingSection() {
               {/* Background Image */}
               <div className="absolute inset-0 bg-[#F5F4F0]">
                 <Image
-                  src="/image-home.svg"
+                  src="/Foto Team/Tandang/Foto-Tandang-BuAnnisa1.JPG"
                   alt="Kelurahan Tandang"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

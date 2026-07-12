@@ -10,7 +10,7 @@ export default function HeroSection() {
     >
       {/* Background Image */}
       <Image
-        src="/image-home.svg"
+        src="/Foto Team/Foto-Setanjang1.jpg"
         alt="KKN Setanjang"
         fill
         priority

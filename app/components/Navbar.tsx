@@ -44,7 +44,7 @@ export default function Navbar() {
       return [
         { label: "Home", href: "/" },
         { label: "Profil Kelurahan", href: "#profil-tandang" },
-        { label: "Pengrajin & UMKM", href: "#pengrajin" },
+        { label: "Pengrajin", href: "#pengrajin" },
         { label: "Katalog", href: "#katalog" },
       ];
     } else if (pathname === "/kkn") {
@@ -56,7 +56,6 @@ export default function Navbar() {
     }
     // Default Home Links
     return [
-      { label: "Home", href: "#home" },
       { label: "Tali Lashing", href: "#lashing" },
       { label: "Tim KKN", href: "/kkn" },
     ];
