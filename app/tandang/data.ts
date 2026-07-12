@@ -96,17 +96,7 @@ export const pengrajin: PengrajinItem[] = [
     phone: "0812-xxxx-0006",
     shopee: "https://shopee.co.id",
     image: "/utami.jpg",
-  },
-  {
-    id: 6,
-    name: "Pak Ruspartono",
-    role: "Ketua RW & Penggerak Lingkungan — RW 03",
-    desc: "Mendukung pelaksanaan program Bank Sampah dan pemberdayaan masyarakat melalui pengelolaan limbah di lingkungan RW 03.",
-    products: ["Program Bank Sampah"],
-    phone: "0812-xxxx-0008",
-    shopee: "https://shopee.co.id",
-    image: "/placeholder-pengrajin.png",
-  },
+  }
 ];
 /* ═══════════════════════════════════════════
    KATALOG DIGITAL PRODUK (HARGA DIHAPUS)
